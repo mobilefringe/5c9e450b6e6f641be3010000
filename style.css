@@ -768,7 +768,7 @@ strong,
 					border-radius: 0px !important;
 					border-bottom: 1px solid #fff;
 					width: 100%;
-					::placeholder {
+					input::placeholder {
 					    color: #fff;
 					}
 				}
