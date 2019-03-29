@@ -769,7 +769,7 @@ strong,
 					border-bottom: 1px solid #fff;
 					width: 100%;
 				}
-				.input::placeholder {
+				.#searchbox::placeholder {
 				    color: #fff;
 				}
 			}
