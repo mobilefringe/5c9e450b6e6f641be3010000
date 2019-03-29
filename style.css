@@ -763,7 +763,7 @@ strong,
 					-o-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 					transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 					transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s, -webkit-box-shadow 0.2s linear 0s;
-					color: #000;
+					color: #fff;
 					-webkit-border-radius: 0px !important;
 					border-radius: 0px !important;
 					border-bottom: 1px solid #fff;
