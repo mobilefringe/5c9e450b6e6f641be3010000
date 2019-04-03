@@ -118,7 +118,7 @@
                 //             this.pageBanner = temp_repo.images[0];
                 //         }
                 //         else {
-                //             this.pageBanner = {};
+                               this.pageBanner = "http://via.placeholder.com/1920x300";
                 //             this.pageBanner.image_url = "";
                 //         }
                 //     });
