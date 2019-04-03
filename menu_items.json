@@ -1,0 +1,95 @@
+[
+    {
+        "name": "header.stores",
+        "href": "",
+        "open_dropdown": false,
+        "id": "stores_link",
+        "sub_menu": [{
+                "name": "header.directory",
+                "href": "/stores"
+            },
+            
+            {
+                "name": "header.restaurants",
+                "href": "/restaurants"
+            },
+            {
+                "name": "header.centre_map",
+                "href": "/map"
+            }
+        ]
+    },
+    {
+        "name": "header.promos",
+        "href": "/promotions",
+        "id": "promos_link"
+    },
+    {
+        "name": "header.news_events",
+        "href": "/events",
+        "id": "events_link"
+    },
+    {
+        "name": "header.services",
+        "href": "",
+        "open_dropdown": false,
+        "id": "services_link",
+        "sub_menu": [
+            {
+                "name": "header.customer_service",
+                "href": "/pages/sudburycentre-customer-service"
+            },
+            {
+                "name": "header.gift_cards",
+                "href": "/pages/sudburycentre-gift-cards"
+            },
+            {
+                "name": "header.sustainability",
+                "href": "/pages/sudburycentre-sustainability"
+            },
+            {
+                "name": "header.mall_walk_program",
+                "href": "/pages/sudburycentre-mall-walk-program"
+            },
+            {
+                "name": "header.community_support",
+                "href": "/pages/sudburycentre-community-support"
+            },
+            {
+                "name": "header.code_conduct",
+                "href": "https://www.mallmaverick.com/system/site_images/photos/000/048/948/original/NSC_CODE_OF_CONDUCT.pdf?1549386608",
+                "external" : true
+            },
+            {
+                "name": "header.accessibility",
+                "href": "/pages/sudburycentre-accessibility"
+            }
+            
+        ]
+    },
+    {
+        "name": "header.contact_us",
+        "href": "",
+        "id": "contact_link",
+        "open_dropdown": false,
+        "sub_menu": [
+            {
+                "name": "header.contact_us",
+                "href": "/contact_us"
+            },
+            {
+                "name": "header.leasing",
+                "href": "/specialty_leasing"
+            },
+            {
+                "name": "header.employment",
+                "href": "/jobs"
+            }
+        ]
+    },
+    {
+        "name": "header.hours",
+        "href": "/hours",
+        "id": "hours_link"
+    }
+]
