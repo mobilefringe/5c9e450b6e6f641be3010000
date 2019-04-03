@@ -92,37 +92,37 @@
                         console.log("Error loading data: " + e.message);
                     }
                 },
-                updatePageData (id) {
-                    this.loadData(id).then(response => {
-                        if(response == null || response == undefined) {
-                            this.$router.replace('/');
-                        }
-                        this.currentPage = response[0].data;
-                        var temp_repo = null;
-                        //Add custom banners for indivial pages 
-                        temp_repo = this.findRepoByName('Pages Banner');
-                        //Add custom banners for indivial pages 
-                        if( _.includes(id, 'accessibility')) {
-                            temp_repo = this.findRepoByName('Accessibility Banner');
-                        }
-                        else if( _.includes(id, 'gift-cards')) {
-                            temp_repo = this.findRepoByName('Gift Cards Banner');
-                        }
-                        else if( _.includes(id, 'leasing')) {
-                            temp_repo = this.findRepoByName('Leasing Banner');
-                        }
-                        else {
-                            temp_repo = this.findRepoByName('Pages Banner');
-                        }
-                        if(temp_repo && temp_repo.images) {
-                            this.pageBanner = temp_repo.images[0];
-                        }
-                        else {
-                            this.pageBanner = {};
-                            this.pageBanner.image_url = "";
-                        }
-                    });
-                },
+                // updatePageData (id) {
+                //     this.loadData(id).then(response => {
+                //         if(response == null || response == undefined) {
+                //             this.$router.replace('/');
+                //         }
+                //         this.currentPage = response[0].data;
+                //         var temp_repo = null;
+                //         //Add custom banners for indivial pages 
+                //         temp_repo = this.findRepoByName('Pages Banner');
+                //         //Add custom banners for indivial pages 
+                //         if( _.includes(id, 'accessibility')) {
+                //             temp_repo = this.findRepoByName('Accessibility Banner');
+                //         }
+                //         else if( _.includes(id, 'gift-cards')) {
+                //             temp_repo = this.findRepoByName('Gift Cards Banner');
+                //         }
+                //         else if( _.includes(id, 'leasing')) {
+                //             temp_repo = this.findRepoByName('Leasing Banner');
+                //         }
+                //         else {
+                //             temp_repo = this.findRepoByName('Pages Banner');
+                //         }
+                //         if(temp_repo && temp_repo.images) {
+                //             this.pageBanner = temp_repo.images[0];
+                //         }
+                //         else {
+                //             this.pageBanner = {};
+                //             this.pageBanner.image_url = "";
+                //         }
+                //     });
+                // },
                 // updateAccessibilityData() {
                 //     var vm = this;
                 //     url = "//acc.speeker.co/get_display_templates?site_id=1";
