@@ -89,8 +89,8 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 newsletter_email: "",
                 stickyMenu: false,
                 isSticky: 350,
-                subdomain: "sudburycentre",
-                twitter_user: "newsudbury"
+                subdomain: "prairiemall",
+                twitter_user: "prairiemall"
             }
         },
         created() {
