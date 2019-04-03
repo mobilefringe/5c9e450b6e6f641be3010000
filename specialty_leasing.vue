@@ -65,16 +65,16 @@
                 }
             },
             props:['id', 'locale'],
-            beforeRouteUpdate(to, from, next) {
-                next();
-                this.updatePageData(to.params.id);
-            },
-            created(){
-               this.updatePageData(this.id);
-            //   if(this.id == "bramaleacitycentre-accessibilty" ){
-            //       this.updateAccessibilityData();
-            //   }
-            },
+            // beforeRouteUpdate(to, from, next) {
+            //     next();
+            //     this.updatePageData(to.params.id);
+            // },
+            // created(){
+            //   this.updatePageData(this.id);
+            // //   if(this.id == "bramaleacitycentre-accessibilty" ){
+            // //       this.updateAccessibilityData();
+            // //   }
+            // },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
