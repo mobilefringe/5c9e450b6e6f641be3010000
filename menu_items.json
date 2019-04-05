@@ -59,12 +59,7 @@
                 "name": "header.code_conduct",
                 "href": "https://www.mallmaverick.com/system/site_images/photos/000/048/948/original/NSC_CODE_OF_CONDUCT.pdf?1549386608",
                 "external" : true
-            },
-            {
-                "name": "header.accessibility",
-                "href": "/pages/sudburycentre-accessibility"
             }
-            
         ]
     },
     {
@@ -82,12 +77,8 @@
                 "href": "/pages/prairiemall-about"
             },
             {
-                "name": "header.sponsorship",
-                "href": "/pages/prairiemall-sponsorship"
-            },
-            {
-                "name": "header.leasing",
-                "href": "/specialty_leasing"
+                "name": "header.accessibility",
+                "href": "/pages/sudburycentre-accessibility"
             }
         ]
     },
