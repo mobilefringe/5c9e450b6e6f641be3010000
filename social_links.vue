@@ -2,6 +2,7 @@
     <div>
         <a href="https://www.facebook.com/Prairiemall" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i><p style="display:none">Facebook</p></a>
         <a href="https://www.twitter.com/prairiemall" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i><p style="display:none">Twitter</p></a>
+        <a href="https://www.pinterest.ca/prairiemall" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i><p style="display:none">Twitter</p></a>
         <a href="https://www.instagram.com/prairiemall/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i><p style="display:none">Instagram</p></a>
     </div>
     
