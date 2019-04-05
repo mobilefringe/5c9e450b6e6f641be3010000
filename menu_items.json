@@ -68,6 +68,30 @@
         ]
     },
     {
+        "name": "header.information",
+        "href": "",
+        "id": "contact_link",
+        "open_dropdown": false,
+        "sub_menu": [
+            {
+                "name": "Contact Prairie Mall",
+                "href": "/contact_us"
+            },
+            {
+                "name": "header.employment",
+                "href": "/jobs"
+            },
+            {
+                "name": "header.sponsorship",
+                "href": "/pages/prairiemall-sponsorship"
+            },
+            {
+                "name": "header.leasing",
+                "href": "/specialty_leasing"
+            }
+        ]
+    },
+    {
         "name": "header.contact_us",
         "href": "",
         "id": "contact_link",
