@@ -74,7 +74,7 @@
         "open_dropdown": false,
         "sub_menu": [
             {
-                "name": "Contact Prairie Mall",
+                "name": "header.hours",
                 "href": "/contact_us"
             },
             {
