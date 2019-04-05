@@ -122,7 +122,7 @@
     						    <li v-for="(item, index) in menu_items" class="menu_item" :class="{dropdown : item.sub_menu,open : item.open_dropdown}" >
     						        <!-- @keyup.enter="toggleDropdown(index)" -->
     						        <router-link v-if="item.sub_menu" to="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" :aria-expanded="item.open_dropdown">{{$t(item.name)}}</router-link>
-    						        <router-link v-else :to="item.href">{{$t(item.name)}}</router-link>
+    						        <p v-else :to="item.href">{{$t(item.name)}}</p>
     						        <ul v-if="item.sub_menu" class="dropdown-content">
     						            <li v-for="sub_menu in item.sub_menu" class="dropdown_item">
     						                <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{$t(sub_menu.name)}}</a>
