@@ -74,8 +74,12 @@
         "open_dropdown": false,
         "sub_menu": [
             {
-                "name": "header.contact_us",
+                "name": "Contact Prairie Mall",
                 "href": "/contact_us"
+            },
+            {
+                "name": "header.leasing",
+                "href": "/specialty_leasing"
             },
             {
                 "name": "header.leasing",
