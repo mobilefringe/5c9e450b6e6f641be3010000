@@ -46,7 +46,7 @@
     						<nav id="mobile_nav" v-show="show_mobile_menu">
     							<ul>
     								<div class="mobile_menu_site_logo">
-    									<router-link to="/"><img src="//codecloud.cdn.speedyrails.net/sites/5c54b7e46e6f6447f2000000/image/png/1549474760240/new_sudbury_transparent copy.png" :alt="property.name +' Mobile Logo'"/></router-link>
+    									<router-link to="/"><img src="//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1554129953732/prairiemall.png" :alt="property.name +' Mobile Logo'"/></router-link>
     								</div>
     								<li v-for="(item,key) in menu_items" class="menu_item">
     								<span @click="closeMobileMenu()" v-if="item.sub_menu == undefined">
