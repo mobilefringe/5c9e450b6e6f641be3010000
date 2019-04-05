@@ -75,7 +75,7 @@
         "sub_menu": [
             {
                 "name": "header.hours",
-                "href": "/contact_us"
+                "href": "/hours"
             },
             {
                 "name": "header.employment",
