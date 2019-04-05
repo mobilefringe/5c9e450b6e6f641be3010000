@@ -78,8 +78,8 @@
                 "href": "/hours"
             },
             {
-                "name": "header.employment",
-                "href": "/jobs"
+                "name": "header.about",
+                "href": "/pages/prairiemall-about"
             },
             {
                 "name": "header.sponsorship",
