@@ -78,6 +78,10 @@
                 "href": "/contact_us"
             },
             {
+                "name": "header.careers",
+                "href": "/specialty_leasing"
+            },
+            {
                 "name": "header.leasing",
                 "href": "/specialty_leasing"
             },
