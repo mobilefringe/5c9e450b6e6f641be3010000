@@ -25,7 +25,7 @@
         "id": "promos_link"
     },
     {
-        "name": "header.news_events",
+        "name": "header.events",
         "href": "/events",
         "id": "events_link"
     },
