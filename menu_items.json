@@ -8,11 +8,6 @@
                 "name": "header.directory",
                 "href": "/stores"
             },
-            
-            {
-                "name": "header.restaurants",
-                "href": "/restaurants"
-            },
             {
                 "name": "header.centre_map",
                 "href": "/map"
