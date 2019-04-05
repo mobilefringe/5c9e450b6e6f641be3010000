@@ -36,10 +36,6 @@
         "id": "services_link",
         "sub_menu": [
             {
-                "name": "header.customer_service",
-                "href": "/pages/sudburycentre-customer-service"
-            },
-            {
                 "name": "header.gift_cards",
                 "href": "/pages/sudburycentre-gift-cards"
             },
