@@ -87,9 +87,4 @@
             }
         ]
     },
-    {
-        "name": "header.hours",
-        "href": "/hours",
-        "id": "hours_link"
-    }
 ]
