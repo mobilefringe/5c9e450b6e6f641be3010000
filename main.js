@@ -96,7 +96,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
         created() {
             this.loadData().then(response => {
                 this.locale = "en-ca";
-                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5c54b7e46e6f6447f2000000/image/jpeg/1549475208485/new_sudbury_black.jpg";
+                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1554129953732/prairiemall.png";
                 this.dataLoaded = true;
                 
             });
