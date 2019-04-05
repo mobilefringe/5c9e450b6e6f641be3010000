@@ -78,20 +78,16 @@
                 "href": "/contact_us"
             },
             {
-                "name": "header.careers",
+                "name": "header.employment",
                 "href": "/jobs"
             },
             {
                 "name": "header.sponsorship",
-                "href": "/specialty_leasing"
+                "href": "/pages/prairiemall-sponsorship"
             },
             {
                 "name": "header.leasing",
                 "href": "/specialty_leasing"
-            },
-            {
-                "name": "header.employment",
-                "href": "/jobs"
             }
         ]
     }
