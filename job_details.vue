@@ -35,9 +35,6 @@
 								{{hour.day_of_week | moment("dddd", timezone)}} - {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}
 							</li>
 						</ul>
-						<div class="store_dets_btn caps" v-if="currentJob.jobable_type == 'Store'">
-							<router-link :to="'/stores/'+currentJob.store.slug"> {{$t("stores_page.store_dets_loc")}}</router-link>
-						</div>
 					</div>
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
