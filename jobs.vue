@@ -69,10 +69,10 @@
 				</div>
 			</div>
 			<div class="show_more"  v-if="promos && showMore < promos.length">
-              <div
+              <button
                 class="contest_btn"
                 @click="loadMoreItems()"
-              >{{$t("jobs_page.more_promos")}}</div>
+              >{{$t("jobs_page.more_promos")}}</button>
             </div>
 		</div>
 	</div>
