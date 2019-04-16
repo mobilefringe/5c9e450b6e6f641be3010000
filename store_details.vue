@@ -74,9 +74,9 @@
     								<p class="promo_div_date" v-if="isMultiDay(promo)"><i class="fa fa-calendar"></i>{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>
 							        <p class="promo_div_date" v-else>{{ promo.start_date | moment("MMM D", timezone) }}</p>
     								<div>
-    								    <span class="contest_btn">
+    								    <button class="contest_btn">
         									<router-link :to="'/promotions/'+promo.slug" class="" >{{$t("promos_page.read_more")}}</router-link>
-        								</span>
+        								</button>
     								</div>
 								</div>
 							</div>
