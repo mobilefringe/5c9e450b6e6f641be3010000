@@ -23,7 +23,8 @@ require.config({
         'datastore': 'https://mmvue.codecloudapp.com/datastore',
         'vue-moment': 'https://mmvue.codecloudapp.com/vue-moment',
         'today_hours': 'https://mmvue.codecloudapp.com/today_hours.vue?noext', //append a dummy query string so requireJS doesn't auto-append .js to the end of the url
-        'search-component': 'https://preview-mmvue.codecloudapp.com/search-component.vue?noext',
+        // 'search-component': 'https://preview-mmvue.codecloudapp.com/search-component.vue?noext',
+        'search-component': '//codecloud.cdn.speedyrails.net/sites/5c9282796e6f645b4d330000//1554999453439/shopperssearch',
         'slick': 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min',
         'vue-slick': 'https://mmvue.codecloudapp.com/slick.vue?noext',
         'vue-select': 'https://cdn.jsdelivr.net/npm/vue-select@2.3.0/dist/vue-select.min',
