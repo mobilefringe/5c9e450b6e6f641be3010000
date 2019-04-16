@@ -10,6 +10,12 @@
 		</div>
 		<div class="site_container">
 			<div class="row">
+			    <div class="col-sm-12 store_router">
+    			    <router-link to="/stores">
+    				    <i class="fa fa-angle-left"></i> 
+    				    {{$t("stores_page.back_to_store")}}
+    				</router-link>
+			    </div>
 				<div class="col-sm-4 promo_logo_container hidden_phone">
 					<div class="image_container details_store_image">
 						<!--<img v-lazy="currentStore.store_front_url_abs" class="image"/>-->
