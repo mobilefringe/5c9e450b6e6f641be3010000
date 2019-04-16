@@ -173,6 +173,7 @@
                     })
                     this.promotions = temp_promo;
                     this.jobs = temp_job;
+                    console.log(this.jobs)
                     
                     var storeHours = [];
                     var vm = this;
