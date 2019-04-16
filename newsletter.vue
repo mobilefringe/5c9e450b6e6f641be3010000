@@ -35,18 +35,18 @@
                                 <button class="contest_btn" type="submit" :disabled="formSuccess">{{$t("newsletter_page.subscribe")}}</button>
                             </div>
                         </div>
-                    <!--</form>-->
+                    </form>
                     
-                    <div id="send_contact_success" class="alert alert-success" role="alert" v-show="formSuccess">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        <span class="sr-only">{{$t("newsletter_page.success")}} : </span>
-                        {{$t("newsletter_page.thank_you_message")}}
-                    </div>
-                    <div id="send_contact_error" class="alert alert-danger" role="alert" v-show="formError">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">{{$t("newsletter_page.error")}} : </span>
-                        {{$t("newsletter_page.error_message")}}
-                    </div>
+                    <!--<div id="send_contact_success" class="alert alert-success" role="alert" v-show="formSuccess">-->
+                    <!--    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>-->
+                    <!--    <span class="sr-only">{{$t("newsletter_page.success")}} : </span>-->
+                    <!--    {{$t("newsletter_page.thank_you_message")}}-->
+                    <!--</div>-->
+                    <!--<div id="send_contact_error" class="alert alert-danger" role="alert" v-show="formError">-->
+                    <!--    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>-->
+                    <!--    <span class="sr-only">{{$t("newsletter_page.error")}} : </span>-->
+                    <!--    {{$t("newsletter_page.error_message")}}-->
+                    <!--</div>-->
                     
                 </div>
             </div>
