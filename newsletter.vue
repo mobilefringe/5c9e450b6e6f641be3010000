@@ -10,7 +10,7 @@
         <div class="site_container">
             <div class="row"> 
                 <div class="col-md-12 contact_contents">
-                    <form  class="form-horizontal js-cm-form" action="https://mobilefringe.createsend.com/t/d/s/gmdyi/" method="post">
+                    <form  class="form-horizontal js-cm-form" action="https://mobilefringe.createsend.com/t/d/s/wdlijy/" method="post">
                     <!--id="subForm" action="form-submit" v-on:submit.prevent="validateBeforeSubmit"-->
                         <div class="form-group ">
                             <div class="col-sm-6 col-xs-12" >
@@ -19,7 +19,7 @@
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <label class="label" for="newsletter_email">{{$t("newsletter_page.email")}}</label>
-                                <input v-model="form_data.email" required class="form-control js-cm-email-input" name="cm-gmdyi-gmdyi" type="email" placeholder="Email" id="newsletter_email">
+                                <input v-model="form_data.email" required class="form-control js-cm-email-input" name="cm-wdlijy-wdlijy" type="email" placeholder="Email" id="newsletter_email">
                             </div>
                         </div>
                         <div class="form-group">
