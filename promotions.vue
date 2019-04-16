@@ -26,7 +26,7 @@
                                 <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
                                 </div>
     						</div>
-						<div class="col-sm-6 col-md-8 event_dets_container">
+						<div class="col-sm-6 col-md-9 event_dets_container">
 							<h4 class="event_name caps" v-if="locale=='en-ca'">{{promo.name}}</h4>
 							<h4 class="event_name caps" v-else>{{promo.name_2}}</h4>
 							<div v-if="promo.promotionable_type == 'Store'">
