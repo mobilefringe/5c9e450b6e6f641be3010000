@@ -178,6 +178,16 @@
                     this.showMore = num;
                   }
                 },
+                isMultiDay(promo) {
+                    var timezone = this.timezone
+                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
+                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
+                    if (start_date === end_date) {
+                        return false
+                    } else {
+                        return true
+                    }
+                },
                 checkImageURL(value) {
                     if (_.includes(value.image_url, "missing")) {
                         if (value.store === null || value.store === undefined) {
