@@ -98,6 +98,9 @@
                             this.$router.replace('/');
                         }
                         this.currentPage = response[0].data;
+                        if (this.currentPage.title == "Thank You") {
+                            this.currentPage.title = "Newsletter"
+                        }
                         var temp_repo = null;
                         //Add custom banners for indivial pages 
                         temp_repo = this.findRepoByName('Pages Banner');
