@@ -86,7 +86,7 @@
 						<div class="promo_container_title text-left caps"></div>
 						<h4 class="store_dets_title caps margin_30">{{$t("jobs_page.jobs")}}</h4>
 						<div class="row store_promo_dets text-left" >
-							<div class="col-sm-6" v-for="job in jobs">
+							<div class="col-sm-6 margin_30" v-for="job in jobs">
 								<div class="store_promo_dets_container padding_tb_20">
 								    <p class="promo_div_name" v-if="locale=='fr-ca'">{{job.name_2}}</p>
 								    <p class="promo_div_name" v-else>{{job.name}}</p>
