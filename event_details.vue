@@ -17,19 +17,19 @@
 					<div class="row">
 						<p class="promo_div_date pull-left"><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
 						<p class="promo_div_date pull-left" v-else><i class="fa fa-calendar"></i>{{ promo.start_date | moment("MMM D", timezone) }}</p>
-						<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
-							<div class="blog-social-share" style="margin: 0 auto 15px;">
-								<div class="social_share">
-									<network network="facebook">
-										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-									</network>
-									<network network="twitter">
-										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-									</network>
-								</div>
-							</div>
-						</social-sharing>
 					</div>
+					<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
+						<div class="blog-social-share" style="margin: 0 auto 15px;">
+							<div class="social_share">
+								<network network="facebook">
+									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+								</network>
+								<network network="twitter">
+									<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+								</network>
+							</div>
+						</div>
+					</social-sharing>
 					<div class="col-sm-12 no_padding text-center">
 						<img v-if="!_.includes(currentEvent.image_url, 'missing')" v-lazy="currentEvent.image_url" class="image" :alt="currentEvent.name"/>
 						<div class="text-left promo_description">
