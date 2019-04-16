@@ -102,8 +102,8 @@
                     pageBanner: null,
                     // paginate: ['promos'],
                     promos : null,
-                    incrementBy: 4,
-                    showMore: 4,
+                    incrementBy: 5,
+                    showMore: 5,
                 }
             },
             created() {
