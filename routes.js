@@ -53,7 +53,7 @@ define([], function() {
             ]
         },
         {
-            path: '/jobs',
+            path: '/careers',
             component: view('default'),
             children: [{
                     path: '',
@@ -102,15 +102,6 @@ define([], function() {
             //     component: view('hours'),
             //     name: 'hourList',
             // }]
-        },
-        {
-            path: '/bcc-bee-hives',
-            component: view('default'),
-            children: [{
-                path: '',
-                component: view('bees'),
-                name: 'bees'
-            }]
         },
         {
             path: '/rewards_club',
