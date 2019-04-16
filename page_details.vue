@@ -108,6 +108,9 @@
                         else if( _.includes(id, 'gift-cards')) {
                             temp_repo = this.findRepoByName('Gift Cards Banner');
                         }
+                        else if( _.includes(id, 'guest-services')) {
+                            temp_repo = this.findRepoByName('Gift Cards Banner');
+                        }
                         else if( _.includes(id, 'leasing')) {
                             temp_repo = this.findRepoByName('Leasing Banner');
                         }
