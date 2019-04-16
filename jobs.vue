@@ -72,8 +72,8 @@
               <button
                 class="contest_btn"
                 @click="loadMoreItems()"
-              >{{$t("promos_page.more_promos")}}</div>
-            </button>
+              >{{$t("promos_page.more_promos")}}</button>
+            </div>
 		</div>
 	</div>
 </template>
