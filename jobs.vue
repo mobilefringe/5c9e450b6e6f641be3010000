@@ -72,7 +72,7 @@
               <div
                 class="contest_btn"
                 @click="loadMoreItems()"
-              >{{$t("promos_page.more_promos")}}</div>
+              >{{$t("jobs_page.more_promos")}}</div>
             </div>
 		</div>
 	</div>
