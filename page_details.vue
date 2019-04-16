@@ -109,7 +109,7 @@
                             temp_repo = this.findRepoByName('Gift Cards Banner');
                         }
                         else if( _.includes(id, 'guest-services')) {
-                            temp_repo = this.findRepoByName('Gift Cards Banner');
+                            temp_repo = this.findRepoByName('Guest Services Banner');
                         }
                         else if( _.includes(id, 'leasing')) {
                             temp_repo = this.findRepoByName('Leasing Banner');
