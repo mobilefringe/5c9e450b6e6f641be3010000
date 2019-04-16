@@ -12,23 +12,21 @@
 			</div>
 		</div>
 		<div class="site_container inside_page_content page_content">
-            <div class="margin_side_20" >
-                <div class="row event_container"  v-if="accessibilityData"  v-for="promo in accessibilityData">
-					<div class="col-sm-12 col-md-12 event_dets_container">
-						<h4 class="event_name caps">{{promo.notice_title}}</h4>
-						<div class="event_thick_line"></div>
-						<p class="event_dates">{{promo.service_completed_date | moment("MMMM D, YYYY", timezone)}}</p>
-						<p class="event_desc" v-html="promo.notice_text_approved"></p>
-						
-					</div>
-					<div class="col-sm-12">
-						<hr>
-					</div>
+            <div class="row event_container"  v-if="accessibilityData"  v-for="promo in accessibilityData">
+				<div class="col-sm-12 col-md-12 event_dets_container">
+					<h4 class="event_name caps">{{promo.notice_title}}</h4>
+					<div class="event_thick_line"></div>
+					<p class="event_dates">{{promo.service_completed_date | moment("MMMM D, YYYY", timezone)}}</p>
+					<p class="event_desc" v-html="promo.notice_text_approved"></p>
+					
 				</div>
-                <div v-if="accessibilityData" style="padding-top:20px;"></div> 
-                <div class="page_body description_text text_left" v-if="locale=='en-ca'" v-html="currentPage.body"></div>
-                <div class="page_body description_text text_left" v-else v-html="currentPage.body_2"></div>
-            </div>
+				<div class="col-sm-12">
+					<hr>
+				</div>
+			</div>
+            <div v-if="accessibilityData" style="padding-top:20px;"></div> 
+            <div class="page_body description_text text_left" v-if="locale=='en-ca'" v-html="currentPage.body"></div>
+            <div class="page_body description_text text_left" v-else v-html="currentPage.body_2"></div>
         </div>
         
     </div>
