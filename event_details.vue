@@ -11,7 +11,7 @@
 		<div class="site_container">
 			<div class="row">
 				<div class="col-sm-12 promo_image_container text-left">
-					<router-link to="/events"><i class="fa fa-angle-left"></i>{{$t("events_page.back_to_events")}}</router-link>
+					<router-link to="/events"><i class="fa fa-angle-left"></i> {{$t("events_page.back_to_events")}}</router-link>
 					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-if="locale=='en-ca'">{{currentEvent.name}}</h3>
 					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-else>{{currentEvent.name_2}}</h3>
 					<div class="row">
@@ -135,6 +135,16 @@
                     this.currentEvent = this.findEventBySlug(id);
                     if (this.currentEvent === null || this.currentEvent === undefined){
                         this.$router.replace('/');
+                    }
+                },
+                isMultiDay(promo) {
+                    var timezone = this.timezone
+                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
+                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
+                    if (start_date === end_date) {
+                        return false
+                    } else {
+                        return true
                     }
                 },
                 loadData: async function() {
