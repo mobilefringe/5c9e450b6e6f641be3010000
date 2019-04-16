@@ -82,6 +82,28 @@
 							</div>
 						</div>
 					</div>
+					<div class="store_promo_container" v-if="promotions.length > 0">
+						<div class="promo_container_title text-left caps"></div>
+						<h4 class="store_dets_title caps margin_30">{{$t("promos_page.promotions")}}</h4>
+						<div class="row store_promo_dets text-left" >
+							<div class="col-sm-6 margin_30" v-for="promo in promotions">
+								<div class="promo_div_image text-center" v-lazy:background-image="checkImageURL(promo)">
+									<!--<img v-lazy="checkImageURL(promo)" class="image" alt=""/>-->
+								</div>
+								<div class="store_promo_dets_container padding_tb_20">
+								    <p class="promo_div_name" v-if="locale=='fr-ca'">{{promo.name_2}}</p>
+								    <p class="promo_div_name" v-else>{{promo.name}}</p>
+    								<p class="promo_div_date"><i class="fa fa-calendar"></i>{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>
+    								<div class="text-center">
+    								    <span class="store_dets_btn">
+        									<router-link :to="'/promotions/'+promo.slug" class="" >{{$t("promos_page.read_more")}}</router-link>
+        								</span>
+    								</div>
+    								
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
