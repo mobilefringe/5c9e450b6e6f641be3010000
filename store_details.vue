@@ -169,10 +169,10 @@
                             'length': 70
                         });
                         temp_job.push(current_job);
-
                     })
                     this.promotions = temp_promo;
                     this.jobs = temp_job;
+                    console.log(this.currentStore)
                     console.log(this.jobs)
                     
                     var storeHours = [];
