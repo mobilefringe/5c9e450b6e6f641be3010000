@@ -78,7 +78,6 @@
         									<router-link :to="'/promotions/'+promo.slug" class="" >{{$t("promos_page.read_more")}}</router-link>
         								</span>
     								</div>
-    								
 								</div>
 							</div>
 						</div>
