@@ -30,7 +30,7 @@
 							</div>
 						</div>
 					</social-sharing>
-					<div class="col-sm-12 no_padding text-center">
+					<div class="col-sm-12 no_padding text-left">
 						<img v-if="!_.includes(currentEvent.image_url, 'missing')" v-lazy="currentEvent.image_url" class="image" :alt="currentEvent.name"/>
 						<img v-else class="image" v-lazy="currentEvent.store.store_front_url_abs" />
 						<div class="text-left promo_description">
