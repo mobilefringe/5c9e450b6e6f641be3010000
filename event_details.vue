@@ -18,7 +18,7 @@
 						<p class="promo_div_date pull-left"><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
 						<p class="promo_div_date pull-left" v-else><i class="fa fa-calendar"></i>{{ promo.start_date | moment("MMM D", timezone) }}</p>
 						<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
-							<div class="blog-social-share pull-right" style="margin: 15px auto;">
+							<div class="blog-social-share" style="margin: 15px auto;">
 								<div class="social_share">
 									<network network="facebook">
 										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
