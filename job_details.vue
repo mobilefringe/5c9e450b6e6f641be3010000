@@ -51,7 +51,8 @@
     					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentJob.store.name_2}}</h4>
     					    <h4 class="event_store_name caps" v-else>{{currentJob.store.name}}</h4>
     					</div>
-						<p class="promo_div_date pull-left">{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}</p>
+						<p class="promo_div_date pull-left" v-if="isMultiDay(currentJob)"><i class="fa fa-calendar"></i>{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}</p>
+						<p class="promo_div_date pull-left" v-else><i class="fa fa-calendar"></i>{{currentJob.start_date | moment("MMM D", timezone) }}</p>
 					</div>
 					<social-sharing :url="$root.shareURL('jobs',currentJob.slug)" :title="currentJob.title" :description="currentJob.body" :quote="_.truncate(currentJob.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentJob.image_url" inline-template >
 						<div class="blog-social-share" style="margin: 0 auto 15px;">
