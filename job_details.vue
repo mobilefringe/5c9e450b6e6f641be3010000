@@ -122,7 +122,7 @@
                         }
                         else if (!this.currentJob.store) {
                             this.currentJob.store = {};
-                            this.currentJob.store.store_front_url_abs = this.property.default_logo_url;
+                            this.currentJob.store.store_front_url_abs = this.property.default_logo_url_black;
                         }
                         var vm = this;
                         var temp_job = [];
