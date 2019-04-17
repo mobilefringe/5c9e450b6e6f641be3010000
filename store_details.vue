@@ -67,10 +67,10 @@
 							<div class="col-sm-6 margin_30" v-for="promo in promotions">
 								<div class="promo_div_image text-center" v-lazy:background-image="checkImageURL(promo)"></div>
 								<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
-                                <div class="no_logo">
-                                    <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
-                                    <h2 class="store_details_name">{{ promo.store.name }}</h2>
-                                </div>    
+                                    <div class="no_logo">
+                                        <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                        <h2 class="store_details_name">{{ promo.store.name }}</h2>
+                                    </div>    
 								</div>
 								<div class="store_promo_dets_container padding_tb_20">
 								    <p class="promo_div_name" v-if="locale=='fr-ca'">{{promo.name_2}}</p>
@@ -178,6 +178,12 @@
                     console.log(this.currentStore)
                     console.log(this.jobs)
                     console.log(this.promotions)
+                    
+                    if ( _.includes(this.currentStore.store_front_url_abs, 'missing')) {
+                       this.currentStore.no_store_logo = true;
+                    } else {
+                      this.currentStore.no_store_logo = false;
+                    }
                     
                     var storeHours = [];
                     var vm = this;
