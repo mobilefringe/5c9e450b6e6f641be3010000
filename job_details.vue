@@ -173,6 +173,16 @@
                         this.$router.replace('/');
                     }
                 },
+                isMultiDay(currentEvent) {
+                    var timezone = this.timezone
+                    var start_date = moment(currentEvent.start_date).tz(timezone).format("MM-DD-YYYY")
+                    var end_date = moment(currentEvent.end_date).tz(timezone).format("MM-DD-YYYY")
+                    if (start_date === end_date) {
+                        return false
+                    } else {
+                        return true
+                    }
+                },
                 loadData: async function() {
                     try {
                         // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
