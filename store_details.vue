@@ -180,9 +180,9 @@
                     console.log(this.promotions)
                     
                     if ( _.includes(this.currentStore.store_front_url_abs, 'missing')) {
-                       this.currentStore.no_store_logo = true;
+                       this.promotions.no_store_logo = true;
                     } else {
-                      this.currentStore.no_store_logo = false;
+                      this.promotions.no_store_logo = false;
                     }
                     
                     var storeHours = [];
