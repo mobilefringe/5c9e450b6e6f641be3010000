@@ -143,6 +143,17 @@
                     }
                     console.log(this.searchResults)
                 },
+                checkResultImage(result){
+                    if(result.store_front_url_abs){
+                        // this is a store with no image
+                        if(_.includes(result.store_front_url_abs,'missing')){
+                            return true
+                        }
+                    } else if(result.store && _.includes(result.store.store_front_url_abs,'missing')){
+                        return true
+                    }
+                    return false
+                },
                 checkPromoImage(result) {
                     if(result.promo_image_url_abs){
                         // this is a store with no image
