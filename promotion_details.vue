@@ -83,7 +83,6 @@
                     }
                     this.promos = this.promotions;
                 });
-                console.log(this.currentPromo)
             },
             watch: {
                 currentPromo : function (){
