@@ -14,7 +14,7 @@
 			<div  v-if="promos.length > 0">
 				<!--<paginate name="promos" v-if="promos" :list="promos" class="paginate-list margin-60" :per="4">-->
 					<div class="row event_container" v-if="showMore > index" v-for="(promo,index) in promos">
-						<div class="col-sm-6 col-md-3 event_image_container" style="max-width:100%">
+						<div class="col-sm-6 col-md-3 event_image_container">
     						<div class="image_container details_store_image">
     							<!--<img :src="promo.store.store_front_url_abs"  class="event_image image" :alt="'Click here to view ' + promo.name"/>-->
     							<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
