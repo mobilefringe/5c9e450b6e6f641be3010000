@@ -173,10 +173,10 @@
                         this.$router.replace('/');
                     }
                 },
-                isMultiDay(currentEvent) {
+                isMultiDay(currentJob) {
                     var timezone = this.timezone
-                    var start_date = moment(currentEvent.start_date).tz(timezone).format("MM-DD-YYYY")
-                    var end_date = moment(currentEvent.end_date).tz(timezone).format("MM-DD-YYYY")
+                    var start_date = moment(currentJob.start_date).tz(timezone).format("MM-DD-YYYY")
+                    var end_date = moment(currentJob.end_date).tz(timezone).format("MM-DD-YYYY")
                     if (start_date === end_date) {
                         return false
                     } else {
