@@ -98,6 +98,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
             this.loadData().then(response => {
                 this.locale = "en-ca";
                 this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1554129953732/prairiemall.png";
+                this.property.default_logo_url_black = "//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1555524945000/Prairie Mall - Logo - Black - Flush.png"
                 this.dataLoaded = true;
                 
             });
