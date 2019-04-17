@@ -143,16 +143,27 @@
                     }
                     console.log(this.searchResults)
                 },
-                checkResultImage(result){
-                    if(result.store_front_url_abs){
+                checkPromoImage(result) {
+                    if(result.promo_image_url_abs){
                         // this is a store with no image
-                        if(_.includes(result.store_front_url_abs,'missing')){
+                        if(_.includes(result.promo_image_url_abs,'missing')){
+                            return false
+                        }
+                        else {
                             return true
                         }
-                    } else if(result.store && _.includes(result.store.store_front_url_abs,'missing')){
-                        return true
                     }
-                    return false
+                },
+                checkEventImage(result) {
+                    if(result.event_image_url_abs){
+                        // this is a store with no image
+                        if(_.includes(result.event_image_url_abs,'missing')){
+                            return true
+                        }
+                        else {
+                            return false
+                        }
+                    }
                 }
             }
         });
