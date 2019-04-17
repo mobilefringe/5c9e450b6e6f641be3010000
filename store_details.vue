@@ -173,6 +173,7 @@
                     this.jobs = temp_job;
                     console.log(this.currentStore)
                     console.log(this.jobs)
+                    console.log(this.promotions)
                     
                     var storeHours = [];
                     var vm = this;
