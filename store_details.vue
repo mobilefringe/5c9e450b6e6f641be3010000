@@ -91,7 +91,7 @@
 								    <p class="promo_div_name" v-if="locale=='fr-ca'">{{job.name_2}}</p>
 								    <p class="promo_div_name" v-else>{{job.name}}</p>
     								<p class="promo_div_date" v-if="isMultiDay(job)"><i class="fa fa-calendar"></i>{{job.start_date | moment("MMM D", timezone)}} - {{job.end_date | moment("MMM D", timezone)}}</p>
-							        <p class="promo_div_date" v-else><i class="fa fa-calendar"></i>{{ jobstart_date | moment("MMM D", timezone) }}</p>
+							        <p class="promo_div_date" v-else><i class="fa fa-calendar"></i>{{ job.start_date | moment("MMM D", timezone) }}</p>
     								<div>
     								    <button class="contest_btn">
         									<router-link :to="'/careers/'+ job.slug" class="" >{{$t("jobs_page.read_more")}}</router-link>
