@@ -139,7 +139,7 @@
                         this.$router.replace('/');
                     }
                 },
-                isMultiDay(promo) {
+                isMultiDay(currentEvent) {
                     var timezone = this.timezone
                     var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
                     var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
