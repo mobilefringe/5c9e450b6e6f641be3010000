@@ -67,11 +67,11 @@
 							<div class="col-sm-6 margin_30" v-for="promo in promotions">
 								<div class="promo_div_image text-center" v-lazy:background-image="checkImageURL(promo)">
 									<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
-                                        <div class="no_logo">
-                                            <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
-                                            <h2 class="store_details_name">{{ promo.store.name }}</h2>
-                                        </div>    
-                                    </div>
+                                    <div class="no_logo">
+                                        <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                        <h2 class="store_details_name">{{ promo.store.name }}</h2>
+                                    </div>    
+                                </div>
 								</div>
 								<div class="store_promo_dets_container padding_tb_20">
 								    <p class="promo_div_name" v-if="locale=='fr-ca'">{{promo.name_2}}</p>
