@@ -4,7 +4,7 @@
             <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
     			<div class="site_container">
     				<div class="header_content">
-    					<h1>Seach Results</h1>
+    					<h1>Search Results</h1>
     					<h2 style="display:none;">Scroll to  view page details</h2>
     					<h3 style="display:none;">View page details</h3>
     				</div>
@@ -90,6 +90,7 @@
                 ) {
                     this.$router.push("/");
                 }
+                console.log(searchResults)
             },
             computed: {
                 ...Vuex.mapGetters([
