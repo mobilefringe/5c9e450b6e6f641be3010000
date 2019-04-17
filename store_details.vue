@@ -278,7 +278,7 @@
                       value.store != undefined &&
                       _.includes(value.store.store_front_url_abs, "missing")
                     ) {
-                      return "//codecloud.cdn.speedyrails.net/sites/5c17f84d6e6f643522450000/image/png/1545071987721/logo.png";
+                      return this.property.default_logo_url_black;
                     } else {
                       return value.store.store_front_url_abs;
                     }
