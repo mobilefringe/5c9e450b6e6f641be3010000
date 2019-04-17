@@ -38,11 +38,11 @@
                                 </div> 
                                 <div v-else>
                                     <img class="result_logo" v-if="result.store" :src="result.store.image_url"/>
-                                    <img class="result_logo" v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
+                                    <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
                                 </div>
                             </div>
                             <div v-else class="col-sm-3 store_details_image center-block">
-                                <img v-if="result.store != null" :src="result.store.image_url"/>   
+                                <img class="result_logo" v-if="result.store != null" :src="result.store.image_url"/>   
                                 <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
                                 <img v-else :src="result.image_url" />
                             </div>
