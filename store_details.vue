@@ -179,7 +179,7 @@
                     console.log(this.jobs)
                     console.log(this.promotions)
                     
-                    if ( _.includes(this.currentStore.store_front_url_abs, 'missing')) {
+                    if ( _.includes(this.promotions.image_url, 'missing')) {
                        this.promotions.no_store_logo = true;
                     } else {
                       this.promotions.no_store_logo = false;
