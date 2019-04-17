@@ -90,7 +90,6 @@
                 ) {
                     this.$router.push("/");
                 }
-                console.log(this.searchResults)
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -134,6 +133,7 @@
                     } else {
                         this.$router.push("/");
                     }
+                    console.log(this.searchResults)
                 },
                 checkResultImage(result){
                     if(result.store_front_url_abs){
