@@ -1039,6 +1039,6 @@ g.mapplic-clickable > * {
 
 @media (max-width: 468px) {
     .mapplic-element {
-        height: 480px;
+        height: 480px !important;
     }
 }
