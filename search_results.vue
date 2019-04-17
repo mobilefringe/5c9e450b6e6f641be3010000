@@ -15,9 +15,16 @@
                     <p class="search_result_title">Found {{searchResults.length}} results matching "{{searchQuery}}"</p>
         			<div v-for="(result,index) in searchResults" :key="index">
                         <div class="row result_container_row">
-                            <div v-if="result.is_store" class="col-sm-3 store_details_image center-block">
+                           <div v-if="result.is_store" class="col-sm-3 store_details_image center-block">
                                 <div v-if="result.hasOwnProperty('promo_image_url_abs')">
-                                    <img :src="result.promo_image_url_abs" />
+                                    <img v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" />
+                                    <div v-else class="no_logo">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
+                                        <p class="store_details_name">
+                                            <span v-if="result.store_front_url_abs">{{result.name}}</span>
+                                            <span v-else>{{ result.store.name }}</span>
+                                        </p>
+                                    </div>  
                                 </div>
                                 <div v-else-if="checkResultImage(result)">
                                     <div class="no_logo">
@@ -35,6 +42,7 @@
                             </div>
                             <div v-else class="col-sm-3 store_details_image center-block">
                                 <img v-if="result.store != null" class="result_logo" :src="result.store.image_url"/>   
+                                <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
                                 <img v-else :src="result.image_url" />
                             </div>
                             <div class="col-sm-9 search_result_content">
