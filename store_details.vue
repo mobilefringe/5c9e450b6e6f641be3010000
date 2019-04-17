@@ -65,7 +65,7 @@
 						<h4 class="store_dets_title caps margin_30">{{$t("promos_page.promotions")}}</h4>
 						<div class="row store_promo_dets text-left" >
 							<div class="col-sm-6 margin_30" v-for="promo in promotions">
-								<div class="promo_div_image text-center">
+								<div class="promo_div_image text-center" v-lazy:background-image="checkImageURL(promo)">
 									<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
                                     <div class="no_logo">
                                         <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
