@@ -90,7 +90,7 @@
                 ) {
                     this.$router.push("/");
                 }
-                console.log(searchResults)
+                console.log(this.searchResults)
             },
             computed: {
                 ...Vuex.mapGetters([
