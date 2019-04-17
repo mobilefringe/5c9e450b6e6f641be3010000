@@ -87,7 +87,7 @@
                         }
                         else if (this.currentEvent.store == null || this.currentEvent.store == undefined) {
                             this.currentEvent.store = {};
-                            this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
+                            this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url_black;
                         }
                         var vm = this;
                         var temp_event = [];
