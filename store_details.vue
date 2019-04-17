@@ -66,7 +66,7 @@
 						<div class="row store_promo_dets text-left" >
 							<div class="col-sm-6 margin_30" v-for="promo in promotions">
 								<div class="promo_div_image text-center" v-lazy:background-image="checkImageURL(promo)"></div>
-								<div v-if="!promo.no_store_logo" class="store_details_image center-block">
+								<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
                                     <div class="no_logo">
                                         <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
                                         <h2 class="store_details_name">{{ promo.store.name }}</h2>
@@ -178,12 +178,6 @@
                     console.log(this.currentStore)
                     console.log(this.jobs)
                     console.log(this.promotions)
-                    
-                    if ( _.includes(this.promotions.image_url, 'missing')) {
-                       this.promotions.no_store_logo = true;
-                    } else {
-                      this.promotions.no_store_logo = false;
-                    }
                     
                     var storeHours = [];
                     var vm = this;
