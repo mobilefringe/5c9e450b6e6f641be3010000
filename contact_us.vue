@@ -1,11 +1,10 @@
 <template>
     <div id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
-        <div  v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
 					<h1>Contact Us</h1>
 					<h2 style="display:none;">Scroll to  view contact details</h2>
-					<h3 style="display:none;">Scroll to  view contact details</h3>
 				</div>
 			</div>
 		</div>  
@@ -15,9 +14,7 @@
                     <div class="text-left contact_us_body" v-html="currentPage.body"></div>
                 </div> 
                 <div class="col-sm-6 contact_contents">
-                    <div class="description_text text_left caps">
-                        CONTACT US FOR QUESTIONS, COMMENTS AND MORE INFORMATION.
-                    </div>
+                    <div class="description_text text_left caps">CONTACT US FOR QUESTIONS, COMMENTS AND MORE INFORMATION.</div>
                     <form class="form-horizontal padding_top_20" action="form-submit" @submit.prevent="validateBeforeSubmit">
                         <div class="form-group ">
                             <div class="col-sm-12" :class="{'has-error': errors.has('name')}">
@@ -42,7 +39,6 @@
                             </div>
                         </div>
                     </form>
-                    
                     <div id="send_contact_success" class="alert alert-success text-left" role="alert" v-show="formSuccess">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         <span class="sr-only">Success</span>
@@ -53,16 +49,10 @@
                         <span class="sr-only">Error:</span>
                         There was an error when trying to submit your request. Please try again later.
                     </div>
-                    
                 </div>
-                
             </div>
-        	
-            <div style="padding-top: 40px;"></div>    
         </div>
-        <div style="margin-bottom:-40px">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.740986304708!2d-118.79423438437529!3d55.18780034289257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x539096a99c2f812f%3A0x783bbfe889a99cb2!2sPrairie+Mall+Shopping+Centre!5e0!3m2!1sen!2sca!4v1555886450780!5m2!1sen!2sca" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.740986304708!2d-118.79423438437529!3d55.18780034289257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x539096a99c2f812f%3A0x783bbfe889a99cb2!2sPrairie+Mall+Shopping+Centre!5e0!3m2!1sen!2sca!4v1555886450780!5m2!1sen!2sca" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 </template>
 <script>
