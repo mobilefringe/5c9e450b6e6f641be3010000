@@ -72,19 +72,19 @@
 					</div>
 					<hr v-if="currentJob.message || currentJob.contact_name || currentJob.contact_email || currentJob.contact_phone || currentJob.contact_website">
                     <div v-if="currentJob.message">
-                        <p><span class="promo_store_name">Additional Message: </span>{{ currentJob.message }}</p>
+                        <p>Additional Message: {{ currentJob.message }}</p>
                     </div>
                     <div v-if="currentJob.contact_name">
-                        <p><span class="promo_store_name">Contact Name: </span>{{ currentJob.contact_name }}</p>
+                        <p>Contact Name: {{ currentJob.contact_name }}</p>
                     </div>
                     <div v-if="currentJob.contact_email">
-                        <p><span class="promo_store_name">Contact Email: </span>{{ currentJob.contact_email }}</p>
+                        <p>Contact Email: {{ currentJob.contact_email }}</p>
                     </div>
                     <div v-if="currentJob.contact_phone">
-                        <p><span class="promo_store_name">Contact Phone: </span>{{ currentJob.contact_phone }}</p>
+                        <p>Contact Phone: {{ currentJob.contact_phone }}</p>
                     </div>
                     <div v-if="currentJob.contact_website">
-                        <p><span class="promo_store_name">Contact Website: </span><a :href="currentJob.contact_website">{{ currentJob.contact_website }}</a></p>
+                        <p>Contact Website: <a :href="currentJob.contact_website">{{ currentJob.contact_website }}</a></p>
                     </div>
 				</div>
 			</div>
