@@ -10,7 +10,8 @@
 		</div>
         <div class="site_container">
     		<div v-if="searchResults && searchResults.length > 0" id="searchResults" class="margin_40">
-                <p class="search_result_title">Found {{searchResults.length}} results matching "{{searchQuery}}"</p>
+                <p v-if="searchResults.length > 1" class="search_result_title">Found {{ searchResults.length }} results matching "{{searchQuery}}"</p>
+                <p v-else class="search_result_title">Found {{searchResults.length}} result matching "{{searchQuery}}"</p>
     			<div v-for="(result, index) in searchResults" :key="index">
                     <div class="row result_container_row">
                         <div v-if="result.is_store" class="col-sm-3 store_details_image center-block">
