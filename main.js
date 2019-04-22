@@ -100,7 +100,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1554129953732/prairiemall.png";
                 this.property.default_logo_url_black = "//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1555524945000/Prairie Mall - Logo - Black - Flush.png"
                 this.dataLoaded = true;
-                
             });
             window.addEventListener('scroll', this.enableStickyNavbar);
         },
@@ -118,7 +117,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 this.show_mobile_menu = false; //close menu when navigating to new page
             },
             show_mobile_menu: function() {
-                if(this.show_mobile_menu === true){
+                if (this.show_mobile_menu === true) {
                     document.body.classList.add("no-scroll");
                 } else if (this.show_mobile_menu === false) {
                     document.body.classList.remove("no-scroll");
@@ -163,10 +162,16 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                         version: "v4"
                     });
                     await Promise.all([this.$store.dispatch("getData", "property")]);
-                    // this.property.name = "Bramalea City Centre";
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
-                    // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                    let results = await Promise.all([this.$store.dispatch("INITIALIZE_LOCALE"), this.$store.dispatch("getData", "hours"), this.$store.dispatch("getData", "stores"), this.$store.dispatch("getData", "promotions"), this.$store.dispatch("getData", "events"),this.$store.dispatch("getData", "jobs"),this.$store.dispatch("getData", "repos")]);
+                    let results = await Promise.all([
+                        this.$store.dispatch("INITIALIZE_LOCALE"), 
+                        this.$store.dispatch("getData", "hours"), 
+                        this.$store.dispatch("getData", "stores"), 
+                        this.$store.dispatch("getData", "promotions"), 
+                        this.$store.dispatch("getData", "events"),
+                        this.$store.dispatch("getData", "jobs"),
+                        this.$store.dispatch("getData", "repos")
+                    ]);
                     await Promise.all([this.$store.dispatch("LOAD_META_DATA")]);
                     return results;
                 } catch (e) {
