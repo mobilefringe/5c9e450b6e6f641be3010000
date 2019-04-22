@@ -30,7 +30,7 @@
 					<div class="col-sm-6 col-md-9 event_dets_container">
 						<h4 class="event_name caps">{{promo.name}}</h4>
 						<p class="event_dates">						    
-						    <span v-if="isMultiDay(promo)"><i class="fa fa-calendar"></i> {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}} 
+						    <span v-if="isMultiDay(promo)"><i class="fa fa-calendar"></i> {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
 						    <span v-else><i class="fa fa-calendar"></i> {{ promo.start_date | moment("MMM D", timezone) }}</span>
 					    </p>
 						<p class="event_desc">{{promo.description_short}}</p>
