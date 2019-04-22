@@ -40,7 +40,7 @@
 		<div class="site_container">
 		    <div class="row">
 		        <div class="col-sm-12 previous_router">
-    		        <i class="fa fa-angle-left"></i> <router-link to="/promotions">{{ $t("events_page.back_to_events") }}</router-link>
+    		        <i class="fa fa-angle-left"></i> <router-link to="/events">{{ $t("events_page.back_to_events") }}</router-link>
     		    </div>
 		    </div>
 			<div class="row margin_40">
