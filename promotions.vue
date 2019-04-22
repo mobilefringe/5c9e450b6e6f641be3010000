@@ -71,10 +71,9 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue-paginate"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload, VuePaginate) {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload) {
         Vue.use(Meta);
         Vue.use(VueLazyload);
-        Vue.use(VuePaginate);
         return Vue.component("promos-component", {
             template: template, // the variable template will be injected
             props:['locale'],
@@ -84,7 +83,6 @@
                     filteredPromos:[],
                     dataloaded: false,
                     pageBanner: null,
-                    // paginate: ['promos'],
                     promos : null,
                     incrementBy: 5,
                     showMore: 5,
