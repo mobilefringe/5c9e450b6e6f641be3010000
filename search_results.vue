@@ -67,7 +67,7 @@
                 </div>                
             </div>
             <div v-else class="row margin_40">
-                <div class="page_container text-left col-md-12" > 
+                <div class="col-md-12" > 
                     <p>Sorry, there are no results that match your search. Please try again.</p>
                 </div>
             </div>
