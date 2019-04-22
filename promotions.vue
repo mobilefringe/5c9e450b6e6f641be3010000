@@ -11,76 +11,63 @@
 			</div>
 		</div>
 		<div class="site_container page_content" id="events_container">
-			<div  v-if="promos.length > 0">
-				<!--<paginate name="promos" v-if="promos" :list="promos" class="paginate-list margin-60" :per="4">-->
-					<div class="row event_container" v-if="showMore > index" v-for="(promo,index) in promos">
-						<div class="col-sm-6 col-md-3 event_image_container">
-    						<div class="image_container details_store_image">
-    							<!--<img :src="promo.store.store_front_url_abs"  class="event_image image" :alt="'Click here to view ' + promo.name"/>-->
-    							<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
-                                    <div class="no_logo">
-                                        <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
-                                        <h2 class="store_details_name">{{ promo.store.name }}</h2>
-                                    </div>    
-                                </div>
-                                <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
-                                </div>
-    						</div>
-						<div class="col-sm-6 col-md-9 event_dets_container">
-							<h4 class="event_name caps" v-if="locale=='en-ca'">{{promo.name}}</h4>
-							<h4 class="event_name caps" v-else>{{promo.name_2}}</h4>
-							<div v-if="promo.promotionable_type == 'Store'">
-							    <h4 class="event_store_name caps" v-if="locale=='en-ca'">{{promo.store.name}}</h4>
-							    <h4 class="event_store_name caps" v-else>{{promo.store.name_2}}</h4>
-							</div>
-							
-							<div class="event_thick_line"></div>
-							<p class="event_dates" v-if="isMultiDay(promo)"><i class="fa fa-calendar"></i> {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}} </p>
-							<p class="event_dates" v-else><i class="fa fa-calendar"></i> {{ promo.start_date | moment("MMM D", timezone) }}</p>
-							<p class="event_desc"  v-if="locale=='en-ca'" >{{promo.description_short}}</p>
-							<p class="event_desc" v-else>{{promo.description_short_2}}</p>
-						
-							<div class="text-right col-md-6 col-sm-12" v-if="promo" style="padding:0">
-								<router-link :to="'/promotions/'+ promo.slug" class="event_learn_more pull-left hvr-icon-wobble-horizontal"  :aria="promo.name">
-								   {{$t("promos_page.read_more")}} <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
-							    </router-link>
-								<social-sharing :url="$root.shareURL('promotions',promo.slug)" :title="promo.title" :description="promo.body" :quote="_.truncate(promo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="promo.image_url" inline-template >
-									<div class="blog-social-share pull_right">
-										<div class="social_share">
-											<network network="facebook">
-												<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-											</network>
-											<network network="twitter">
-												<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-											</network>
-										</div>
-									</div>
-								</social-sharing>
-							</div>
+			<div v-if="promos.length > 0">
+				<div class="row event_container" v-if="showMore > index" v-for="(promo, index) in promos">
+					<div class="col-sm-6 col-md-3 event_image_container">
+						<div class="image_container details_store_image">
+							<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
+                                <div class="no_logo">
+                                    <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                    <h2 class="store_details_name">{{ promo.store.name }}</h2>
+                                </div>    
+                            </div>
+                            <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
+                        </div>
+					</div>
+					<div class="col-sm-6 col-md-9 event_dets_container">
+						<h4 class="event_name caps">{{promo.name}}</h4>
+	
+						<div v-if="promo.promotionable_type == 'Store'">
+						    <h4 class="event_store_name caps" >{{promo.store.name}}</h4>
+				
 						</div>
-						<div class="col-sm-12">
-							<hr>
+						
+						<div class="event_thick_line"></div>
+						<p class="event_dates">
+						    <span v-if="isMultiDay(promo)"><i class="fa fa-calendar"></i> {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
+						    <span v-else><i class="fa fa-calendar"></i> {{ promo.start_date | moment("MMM D", timezone) }}</span>
+					    </p>
+						<p class="event_desc">{{promo.description_short}}</p>
+						<div class="text-right col-md-6 col-sm-12" v-if="promo">
+							<router-link :to="'/promotions/'+ promo.slug" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :aria="promo.name">
+							   {{ $t("promos_page.read_more") }} <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
+						    </router-link>
+							<social-sharing :url="$root.shareURL('promotions',promo.slug)" :title="promo.title" :description="promo.body" :quote="_.truncate(promo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="promo.image_url" inline-template >
+								<div class="blog-social-share pull_right">
+									<div class="social_share">
+										<network network="facebook">
+											<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+										</network>
+										<network network="twitter">
+											<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+										</network>
+									</div>
+								</div>
+							</social-sharing>
 						</div>
 					</div>
-				<!--</paginate>-->
+					<div class="col-sm-12">
+						<hr>
+					</div>
+				</div>
 			</div>
 			<div id="no_events" class="row" v-else>
 				<div class="col-md-12">
 					<p>{{$t("promos_page.no_promo_message")}}</p>
 				</div>
 			</div>
-			<!--<div class="row margin-60">-->
-			<!--	<div class="col-md-12">-->
-			<!--		<paginate-links for="promos" :async="true" :limit="5" :show-step-links="true"></paginate-links>-->
-					<!--<paginate-links for="currentSelection" :async="true" :simple="{ next: 'Next »', prev: '« Back' }"></paginate-links>-->
-			<!--	</div>-->
-			<!--</div>-->
-			
 			<div class="show_more"  v-if="promos && showMore < promos.length">
-              <div
-                class="contest_btn"
-                @click="loadMoreItems()"
-              >{{$t("promos_page.more_promos")}}</div>
+                <div class="contest_btn" @click="loadMoreItems()">{{$t("promos_page.more_promos")}}</div>
             </div>
 		</div>
 	</div>
