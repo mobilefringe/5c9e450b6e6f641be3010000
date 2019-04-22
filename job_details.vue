@@ -5,7 +5,6 @@
 				<div class="header_content caps">
 					<h1>{{$t("jobs_page.jobs")}}</h1>
 					<h2 style="display:none;">Scroll to  view job details</h2>
-					<h3 style="display:none;">Scroll to  view job details</h3>
 				</div>
 			</div>
 		</div>
@@ -29,19 +28,19 @@
                         </div>
 					</div>
 					<div class="text-center" v-if="currentJob.store.name">
-					    <div v-if="currentJob.jobable_type == 'Store'">
-						    <h4 class="event_store_name caps">{{currentJob.store.name}}</h4>
-						</div>
-						<h4 v-if="currentJob.store.phone" class="store_dets_title"> {{currentJob.store.phone}}</h4>
-						<h4 v-if="currentJob.store.website" class="store_dets_title"> <a :href="'//'+currentJob.store.website" target="_blank">{{$t("stores_page.store_website")}}</a></h4>
-						<h4 v-if="storeHours.length >0 " class="store_dets_title">{{$t("stores_page.store_hours")}}</h4>
+					    <h4 v-if="currentJob.jobable_type == 'Store'" class="event_store_name caps">{{ currentJob.store.name }}</h4>
+						<h4 v-if="currentJob.store.phone" class="store_dets_title">{{ currentJob.store.phone }}</h4>
+						<h4 v-if="currentJob.store.website" class="store_dets_title"> 
+						    <a :href="'//' + currentJob.store.website" target="_blank">{{ $t("stores_page.store_website") }}</a>
+					    </h4>
+						<h4 v-if="storeHours.length > 0" class="store_dets_title">{{ $t("stores_page.store_hours") }}</h4>
 						<ul class="store_hours_list">
 							<li v-if="storeHours" v-for="hour in storeHours">
-								{{hour.day_of_week | moment("dddd", timezone)}} - {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}
+								{{ hour.day_of_week | moment("dddd", timezone) }}: {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}
 							</li>
 						</ul>
 						<div class="contest_btn" v-if="currentJob.jobable_type == 'Store'">
-							<router-link :to="'/stores/'+currentJob.store.slug"> {{$t("stores_page.store_dets_loc")}}</router-link>
+							<router-link :to="'/stores/' + currentJob.store.slug"> {{ $t("stores_page.store_dets_loc") }}</router-link>
 						</div>
 					</div>
 				</div>
@@ -52,7 +51,6 @@
 					</div>
 					<p class="promo_div_date" v-if="isMultiDay(currentJob)">
 					    <i class="fa fa-calendar"></i>{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}
-					        
 				    </p>
 					<p class="promo_div_date pull-left" v-else>
 					    <i class="fa fa-calendar"></i>{{currentJob.start_date | moment("MMM D", timezone) }}
@@ -69,7 +67,6 @@
 							</div>
 						</div>
 					</social-sharing>
-			
 					<div class="text-left promo_description">
 						<p v-html="currentJob.rich_description"></p>
 					</div>
@@ -96,7 +93,7 @@
             beforeRouteUpdate(to, from, next) {
                 this.currentJob = this.findJobBySlug(to.params.id);
                     if (this.currentJob === null || this.currentJob === undefined){
-                        this.$router.replace('/');
+                        this.$router.replace('/jobs');
                     }
                 next();
             },
@@ -104,19 +101,17 @@
                 this.loadData().then(response => {
                     this.updateCurrentJob(this.id);
                     var temp_repo = this.findRepoByName('Jobs Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    this.jobs = this.job;
                 });
             },
             watch: {
                 currentJob : function (){
-                    if(this.currentJob != null) {
+                    if (this.currentJob != null) {
                         if (this.currentJob.store  && _.includes(this.currentJob.store.store_front_url_abs, 'missing')) {
                             // this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
                             this.currentJob.store.no_store_logo = true;
@@ -169,10 +164,10 @@
                 },
             },
             methods: {
-                updateCurrentJob (id) {
+                updateCurrentJob(id) {
                     this.currentJob = this.findJobBySlug(id);
                     if (this.currentJob === null || this.currentJob === undefined){
-                        this.$router.replace('/');
+                        this.$router.replace('/jobs');
                     }
                 },
                 isMultiDay(currentJob) {
