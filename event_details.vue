@@ -32,7 +32,6 @@
 				</div>
 				<div class="col-sm-12">
 					<img v-if="currentEvent.image_url" class="image" :src="currentEvent.image_url" :alt="currentEvent.name"/>
-					
 					<div class="text-left promo_description" v-html="currentEvent.rich_description"></div>
 				</div>
 			</div>
