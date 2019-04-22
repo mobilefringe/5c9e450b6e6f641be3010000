@@ -101,6 +101,7 @@
 							</div>
 						</div>
 					</social-sharing>
+					<img v-if="currentPromo.image_url" class="promo_img" :src="currentPromo.image_url" :alt="currentPromo.name"/>
 					<div class="text-left promo_description">
 						<p v-html="currentPromo.rich_description"></p>
 					</div>
