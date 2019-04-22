@@ -6,8 +6,6 @@
 				<div class="header_content caps">
 					<h1>{{$t("events_page.events")}}</h1>
 					<h2 style="display:none;">Scroll to  view events</h2>
-					<h3 style="display:none;">View all events below</h3>
-					
 				</div>
 			</div>
 		</div>
@@ -150,17 +148,15 @@
             },
             created() {
                 this.loadData().then(response => {
-                    this.dataloaded = true;
-                    
                     var temp_repo = this.findRepoByName('Events Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
                     this.promos = this.events;
+                    this.dataloaded = true;
                 });
             },
             computed: {
@@ -177,19 +173,15 @@
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
                         if (today >= webDate) {
-                            value.description_short = _.truncate(value.description, {
-                                'length': 150
-                            });
-                            value.description_short_2 = _.truncate(value.description_2, {
-                                'length': 150
-                            });
+                            value.description_short = _.truncate(value.description, { 'length': 150 });
+
                             if (value.store != null && value.store != undefined && _.includes(value.store.store_front_url_abs, 'missing')) {
                                 value.store.store_front_url_abs = vm.property.default_logo_url_black;
-                            }
-                            else if (value.store == null || value.store == undefined) {
+                            } else if (value.store == null || value.store == undefined) {
                                 value.store = {};
                                 value.store.store_front_url_abs =  vm.property.default_logo_url_black;
                             }
+                            
                             temp_promo.push(value);
                         }
                     });
@@ -200,17 +192,19 @@
             methods: {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "events"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "events"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
                 },
                 loadMoreItems() {
-                  if (this.showMore <= this.promos.length) {
-                    var num = this.showMore + this.incrementBy;
-                    this.showMore = num;
-                  }
+                    if (this.showMore <= this.promos.length) {
+                        var num = this.showMore + this.incrementBy;
+                        this.showMore = num;
+                    }
                 },
                 isMultiDay(promo) {
                     var timezone = this.timezone
