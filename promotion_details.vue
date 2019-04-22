@@ -10,7 +10,7 @@
 		</div>
 		<div class="site_container">
 			<div class="row">
-				<div class="col-sm-12 promo_image_container margin_40 text-left">
+				<div class="col-sm-12">
 					<router-link to="/promotions">
 					    <i class="fa fa-angle-left"></i> {{$t("promos_page.back_to_promos")}}
 					</router-link>
@@ -19,20 +19,20 @@
 					    <span v-if="isMultiDay(currentPromo)"><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</span>
 						<span v-else><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}}</span>
 					</p>
+    				<social-sharing :url="$root.shareURL('promos',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
+    					<div class="blog-social-share" style="margin: 0 auto 15px">
+    						<div class="social_share">
+    							<network network="facebook">
+    								<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+    							</network>
+    							<network network="twitter">
+    								<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+    							</network>
+    						</div>
+    					</div>
+    				</social-sharing>
 				</div>
-				<social-sharing :url="$root.shareURL('promos',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
-					<div class="blog-social-share" style="margin: 0 auto 15px">
-						<div class="social_share">
-							<network network="facebook">
-								<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-							</network>
-							<network network="twitter">
-								<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-							</network>
-						</div>
-					</div>
-				</social-sharing>
-				<div class="col-sm-12 no_padding text-left">
+				<div class="col-sm-12">
 					<img v-if="!_.includes(currentPromo.image_url, 'missing')" :src="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
 					<img v-else class="image" :src="currentPromo.store.store_front_url_abs" />
 					<div class="text-left promo_description" v-html="currentPromo.rich_description"></div>
