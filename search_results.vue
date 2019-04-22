@@ -8,8 +8,8 @@
 				</div>
 			</div>
 		</div>
-        <div class="site_container margin_40">
-    		<div class="text-left" v-if="searchResults && searchResults.length > 0" id="searchResults">
+        <div class="site_container">
+    		<div class="text-left" v-if="searchResults && searchResults.length > 0" id="searchResults" class="margin_40">
                 <p class="search_result_title">Found {{searchResults.length}} results matching "{{searchQuery}}"</p>
     			<div v-for="(result, index) in searchResults" :key="index">
                     <div class="row result_container_row">
