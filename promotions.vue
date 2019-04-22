@@ -13,7 +13,7 @@
 				<div class="row event_container" v-if="showMore > index" v-for="(promo, index) in promos">
 					<div class="col-sm-6 col-md-3 event_image_container">
 						<div class="image_container details_store_image">
-							<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
+							<div v-if="promo.no_logo" class="store_details_image center-block">
                                 <div class="no_logo">
                                     <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
                                     <h2 class="store_details_name">{{ promo.store.name }}</h2>
