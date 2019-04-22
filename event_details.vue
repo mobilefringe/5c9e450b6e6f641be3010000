@@ -62,9 +62,9 @@
 						<!--		{{ hour.day_of_week | moment("dddd", timezone) }}: {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}-->
 						<!--	</li>-->
 						<!--</ul>-->
-						<!--<div class="contest_btn" v-if="currentEvent.promotionable_type == 'Store'">-->
-						<!--	<router-link :to="'/stores/' + currentEvent.store.slug"> {{ $t("stores_page.store_dets_loc") }}</router-link>-->
-						<!--</div>-->
+						<div class="contest_btn">
+							<router-link :to="'/contact-us">Contact Us</router-link>
+						</div>
 					</div>
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
