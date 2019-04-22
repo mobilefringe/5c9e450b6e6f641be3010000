@@ -50,7 +50,7 @@
                             <img :src="currentEvent.store_logo" :alt="property.name + ' Logo'" />
                         </div>
 					</div>
-					<div class="text-center" v-if="currentEvent.store.name">
+					<div class="text-center" >
 					 <!--   <h4 v-if="currentEvent.eventable_type == 'Store'" class="event_store_name caps">{{ currentEvent.store.name }}</h4>-->
 						<!--<h4 v-if="currentEvent.store.phone" class="store_dets_title">{{ currentEvent.store.phone }}</h4>-->
 						<!--<h4 v-if="currentEvent.store.website" class="store_dets_title"> -->
