@@ -11,7 +11,7 @@
 		<div class="site_container">
 		    <div class="row">
 		        <div class="col-sm-12 previous_router">
-    		        <router-link to="/jobs"><i class="fa fa-angle-left"></i> {{$t("jobs_page.back_to_jobs")}}</router-link>
+    		        <i class="fa fa-angle-left"></i> <router-link to="/jobs">{{$t("jobs_page.back_to_jobs")}}</router-link>
     		    </div>
 		    </div>
 			<div class="row margin_40">
