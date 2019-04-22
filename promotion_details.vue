@@ -33,8 +33,7 @@
     				</social-sharing>
 				</div>
 				<div class="col-sm-12">
-					<img v-if="!_.includes(currentPromo.image_url, 'missing')" :src="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
-					<img v-else class="image" :src="currentPromo.store.store_front_url_abs" />
+					<img v-if="currentPromo.image_url" class="promo_img" :src="currentPromo.image_url" :alt="currentPromo.name"/>
 					<div class="text-left promo_description" v-html="currentPromo.rich_description"></div>
 				</div>
 			</div>
