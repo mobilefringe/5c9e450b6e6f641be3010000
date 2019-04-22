@@ -3,7 +3,7 @@
 		<div class="page_header" v-if="pageBanner" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content caps">
-					<h1>{{$t("promos_page.promotions")}}</h1>
+					<h1>{{ $t("promos_page.promotions") }}</h1>
 					<h2 style="display:none;">Scroll to view event details</h2>
 				</div>
 			</div>
@@ -12,12 +12,12 @@
 			<div class="row margin_40">
 				<div class="col-sm-12">
 					<router-link to="/promotions">
-					    <i class="fa fa-angle-left"></i> {{$t("promos_page.back_to_promos")}}
+					    <i class="fa fa-angle-left"></i> {{ $t("promos_page.back_to_promos") }}
 					</router-link>
 					<h3 class="promo_name" style="margin: 20px auto 0;">{{ currentPromo.name }}</h3>
 					<p class="promo_div_date">
-					    <span v-if="isMultiDay(currentPromo)"><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</span>
-						<span v-else><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}}</span>
+					    <span v-if="isMultiDay(currentPromo)"><i class="fa fa-calendar"></i>{{ currentPromo.start_date | moment("MMM D", timezone) }} - {{ currentPromo.end_date | moment("MMM D", timezone) }}</span>
+						<span v-else><i class="fa fa-calendar"></i>{{ currentPromo.start_date | moment("MMM D", timezone) }}</span>
 					</p>
     				<social-sharing :url="$root.shareURL('promos',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
     					<div class="blog-social-share" style="margin: 0 auto 20px">
