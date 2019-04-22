@@ -73,21 +73,21 @@
         "read_more" : "View Promotion Details",
         "no_promo_message" : "There are no Promotions at this time. Please check back soon.",
         "back_to_promos" : "Back to Promotions",
-        "more_promos": "Load More Promos"
+        "more_promos": "Load More"
     },
     "events_page": {
         "events" : "Events",
         "read_more" : "View Event Details",
         "no_event_message" : "There are no Events at this time. Please check back soon.",
         "back_to_events" : "Back to Events",
-        "more_promos": "Load More Events"
+        "more_promos": "Load More"
     },
     "jobs_page": {
         "jobs" : "Careers",
         "read_more" : "View Career Details",
         "no_job_message" : "There are no careers listed at this time. Please check back soon.",
         "back_to_jobs" : "Back to Careers",
-        "more_promos": "Load More Careers"
+        "more_promos": "Load More"
     },
     "hours_page" : {
         "hours" : "Hours",
