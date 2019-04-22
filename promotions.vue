@@ -20,7 +20,9 @@
                                 </div>    
                             </div>
                             <!--<img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />-->
-                            <img v-else class="center-block" :src="promo.image_url" :alt="promo.name" />
+                            <div v-else class="store_details_image center-block">
+                                <img :src="promo.image_url" :alt="promo.name" />
+                            </div>
                         </div>
 					</div>
 					<div class="col-sm-6 col-md-9 event_dets_container">
