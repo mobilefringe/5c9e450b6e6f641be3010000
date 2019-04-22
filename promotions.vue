@@ -19,7 +19,6 @@
                                     <h2 class="store_details_name">{{ promo.store.name }}</h2>
                                 </div>    
                             </div>
-                            <!--<img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />-->
                             <div v-else class="store_details_image center-block">
                                 <img :src="promo.image_url" :alt="promo.name" />
                             </div>
