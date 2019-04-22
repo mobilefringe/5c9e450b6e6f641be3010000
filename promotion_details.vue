@@ -78,19 +78,10 @@
             watch: {
                 currentPromo : function (){
                     if(this.currentPromo != null) {
-                        if (this.currentPromo.store  && _.includes(this.currentPromo.store.store_front_url_abs, 'missing')) {
-                            // this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
-                            this.currentPromo.store.no_store_logo = true;
+                        if (_.includes(this.currentPromo.image_url, 'missing')) {
+                            this.currentPromo.image_url = "";
                         }
-                        else if (!this.currentPromo.store) {
-                            this.currentPromo.store = {};
-                            this.currentPromo.store.store_front_url_abs = this.property.default_logo_url_black;
-                        }
-                        // if ( _.includes(this.currentStore.store_front_url_abs, 'missing')) {
-                        //   this.currentStore.no_store_logo = true;
-                        // } else {
-                        //   this.currentStore.no_store_logo = false;
-                        // }
+
                         var vm = this;
                         var temp_promo = [];
                         var current_id =_.toNumber(this.currentPromo.id);
