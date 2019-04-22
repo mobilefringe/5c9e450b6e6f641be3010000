@@ -115,32 +115,31 @@
                         if (this.currentJob.store  && _.includes(this.currentJob.store.store_front_url_abs, 'missing')) {
                             // this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
                             this.currentJob.store.no_store_logo = true;
-                        }
-                        else if (!this.currentJob.store) {
+                        } else if (!this.currentJob.store) {
                             this.currentJob.store = {};
                             this.currentJob.store.store_front_url_abs = this.property.default_logo_url_black;
                         }
+                        
                         var vm = this;
                         var temp_job = [];
                         var current_id =_.toNumber(this.currentJob.id);
                         _.forEach(this.currentJob.store.jobs, function(value, key) {
                             if(_.toNumber(value) != current_id){
                                 var current_promo = vm.findJobById(value);
-                                current_promo.description_short = _.truncate(current_promo.description, {'length': 70});
+                                current_promo.description_short = _.truncate(current_promo.description, { 'length': 70 });
                                 temp_job.push(current_promo);
                             }
                         });
                         this.storeJobs = temp_job;
                     }
-                    if(this.currentJob.store) {
+                    if (this.currentJob.store) {
                         var storeHours = [];
                         var vm = this;
                         _.forEach(this.currentJob.store.store_hours, function (value, key) {
                             var hour = vm.findHourById(value);
                             if(hour.day_of_week === 0){
                                 hour.order = 7;
-                            }
-                            else {
+                            } else {
                                 hour.order = hour.day_of_week;
                             }
                             storeHours.push();
@@ -158,10 +157,7 @@
                     'timezone',
                     'findRepoByName',
                     'findHourById'
-                ]),
-                allJobs() {
-                    return this.processedJobs;
-                },
+                ])
             },
             methods: {
                 updateCurrentJob(id) {
@@ -182,8 +178,10 @@
                 },
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "jobs"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "jobs"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
