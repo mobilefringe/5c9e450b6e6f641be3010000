@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div class="site_container">
-			<div class="row">
+			<div class="row margin_40">
 				<div class="col-sm-12">
 					<router-link to="/events"><i class="fa fa-angle-left"></i> {{$t("events_page.back_to_events")}}</router-link>
 					<h3 class="promo_name" style="margin: 20px auto 0px;">{{ currentEvent.name }}</h3>
