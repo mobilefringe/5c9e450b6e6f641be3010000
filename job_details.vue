@@ -86,7 +86,6 @@
                     <div v-if="currentJob.contact_website">
                         <p><span class="promo_store_name">Contact Website: </span><a :href="currentJob.contact_website">{{ currentJob.contact_website }}</a></p>
                     </div>
-                    <hr>
 				</div>
 			</div>
 		</div>
