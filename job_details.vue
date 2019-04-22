@@ -14,7 +14,7 @@
     		        <router-link to="/jobs"><i class="fa fa-angle-left"></i> {{$t("jobs_page.back_to_jobs")}}</router-link>
     		    </div>
 		    </div>
-			<div class="row">
+			<div class="row margin_40">
 				<div class="col-sm-4 promo_logo_container hidden_phone">
 					<div class="image_container details_store_image">
 						<div v-if="currentJob.store.no_store_logo" class="store_details_image center-block">
