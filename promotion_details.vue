@@ -9,19 +9,17 @@
 			</div>
 		</div>
 		<div class="site_container">
-		    <sponsorship></sponsorship>
 			<div class="row">
 				<div class="col-sm-12 promo_image_container margin_40 text-left">
 					<router-link to="/promotions">
-					    <i class="fa fa-angle-left"></i> 
-					    {{$t("promos_page.back_to_promos")}}
+					    <i class="fa fa-angle-left"></i> {{$t("promos_page.back_to_promos")}}
 					</router-link>
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-if="locale=='en-ca'">{{currentPromo.name}}</h3>
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-else>{{currentPromo.name_2}}</h3>
-					<div class="row">
-						<p class="promo_div_date pull-left" v-if="isMultiDay(currentPromo)"><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
-						<p class="promo_div_date pull-left" v-else><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}}</p>
-					</div>
+					<h3 class="promo_name" style="margin: 20px auto 0;">{{ currentPromo.name }}</h3>
+					<p class="promo_div_date">
+					    <span v-if="isMultiDay(currentPromo)"><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</span>
+						<span v-else><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}}</span>
+					</p>
+				</div>
 					<social-sharing :url="$root.shareURL('promos',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
 						<div class="blog-social-share" style="margin: 0 auto 15px">
 							<div class="social_share">
