@@ -77,8 +77,6 @@
                     if (this.currentEvent != null) {
                         if (_.includes(this.currentEvent.image_url, 'missing')) {
                             this.currentEvent.image_url = "";
-                        } else {
-                            this.currentEvent.image_url = this.currentEvent.image_url;
                         }
                         
                         var vm = this;
