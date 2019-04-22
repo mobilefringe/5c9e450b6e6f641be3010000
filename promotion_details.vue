@@ -33,8 +33,8 @@
 					</div>
 				</social-sharing>
 				<div class="col-sm-12 no_padding text-left">
-					<img v-if="!_.includes(currentPromo.image_url, 'missing')" v-lazy="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
-					<img v-else class="image" v-lazy="currentPromo.store.store_front_url_abs" />
+					<img v-if="!_.includes(currentPromo.image_url, 'missing')" :src="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
+					<img v-else class="image" :src="currentPromo.store.store_front_url_abs" />
 					<div class="text-left promo_description" v-html="currentPromo.rich_description"></div>
 				</div>
 			</div>
