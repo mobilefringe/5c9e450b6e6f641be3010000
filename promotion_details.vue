@@ -20,27 +20,22 @@
 						<span v-else><i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}}</span>
 					</p>
 				</div>
-					<social-sharing :url="$root.shareURL('promos',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
-						<div class="blog-social-share" style="margin: 0 auto 15px">
-							<div class="social_share">
-								<network network="facebook">
-									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-								</network>
-								<network network="twitter">
-									<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-								</network>
-							</div>
-						</div>
-					</social-sharing>
-					<div class="col-sm-12 no_padding text-left">
-						<img v-if="!_.includes(currentPromo.image_url, 'missing')" v-lazy="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
-						
-						<img v-else class="image" v-lazy="currentPromo.store.store_front_url_abs" />
-						<div class="text-left promo_description">
-							<p v-if="locale=='en-ca'" v-html="currentPromo.rich_description"></p>
-							<p v-else v-html="currentPromo.rich_description_2"></p>
+				<social-sharing :url="$root.shareURL('promos',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
+					<div class="blog-social-share" style="margin: 0 auto 15px">
+						<div class="social_share">
+							<network network="facebook">
+								<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+							</network>
+							<network network="twitter">
+								<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+							</network>
 						</div>
 					</div>
+				</social-sharing>
+				<div class="col-sm-12 no_padding text-left">
+					<img v-if="!_.includes(currentPromo.image_url, 'missing')" v-lazy="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
+					<img v-else class="image" v-lazy="currentPromo.store.store_front_url_abs" />
+					<div class="text-left promo_description" v-html="currentPromo.rich_description"></div>
 				</div>
 			</div>
 		</div>
@@ -48,8 +43,7 @@
 </template>
 
 <script>
-    define(['Vue', 'vuex', 'moment', 'vue-lazy-load', "vue!sponsorship"], function(Vue, Vuex, moment, VueLazyload, sponsorship) {
-        Vue.use(VueLazyload);
+    define(['Vue', 'vuex', 'moment'], function(Vue, Vuex, moment) {
         return Vue.component("promo-details-component", {
             template: template, // the variable template will be injected,
             props:['id', 'locale'],
@@ -136,16 +130,13 @@
                     'timezone',
                     'findRepoByName',
                     'findHourById'
-                ]),
-                allPromos() {
-                    return this.processedPromos;
-                },
+                ])
             },
             methods: {
-                updateCurrentPromo (id) {
+                updateCurrentPromo(id) {
                     this.currentPromo = this.findPromoBySlug(id);
-                    if (this.currentPromo === null || this.currentPromo === undefined){
-                        this.$router.replace('/');
+                    if (this.currentPromo === null || this.currentPromo === undefined) {
+                        this.$router.replace('/promotions');
                     }
                 },
                 isMultiDay(promo) {
@@ -160,8 +151,10 @@
                 },
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "promotions"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "promotions"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
