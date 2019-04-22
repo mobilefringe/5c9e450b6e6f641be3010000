@@ -31,8 +31,8 @@
 					</social-sharing>
 				</div>
 				<div class="col-sm-12">
-					<img v-if="!_.includes(currentEvent.image_url, 'missing')" :src="currentEvent.image_url" class="image" :alt="currentEvent.name"/>
-					<img v-else class="image" :src="currentEvent.store.store_front_url_abs" />
+					<img v-if="currentEvent.image_url" class="image" :src="currentEvent.image_url" :alt="currentEvent.name"/>
+					
 					<div class="text-left promo_description" v-html="currentEvent.rich_description"></div>
 				</div>
 			</div>
@@ -89,7 +89,7 @@
                         _.forEach(this.currentEvent.store.event, function(value, key) {
                             if(_.toNumber(value) != current_id){
                                 var current_event = vm.findEventById(value);
-                                current_event.description_short = _.truncate(current_event.description, {'length': 70});
+                                current_event.description_short = _.truncate(current_event.description, { 'length': 70 });
                                 temp_event.push(current_event);
                             }
                         });
@@ -102,8 +102,7 @@
                             var hour = vm.findHourById(value);
                             if(hour.day_of_week === 0){
                                 hour.order = 7;
-                            }
-                            else {
+                            } else {
                                 hour.order = hour.day_of_week;
                             }
                             storeHours.push();
