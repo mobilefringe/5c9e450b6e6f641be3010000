@@ -93,8 +93,7 @@
 </template>
 
 <script>
-    define(['Vue', 'vuex', 'moment', 'vue-lazy-load'], function(Vue, Vuex, moment, VueLazyload) {
-        Vue.use(VueLazyload);
+    define(['Vue', 'vuex', 'moment'], function(Vue, Vuex, moment) {
         return Vue.component("job-details-component", {
             template: template, // the variable template will be injected,
             data: function() {
