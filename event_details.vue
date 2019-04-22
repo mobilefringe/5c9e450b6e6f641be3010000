@@ -51,20 +51,20 @@
                         </div>
 					</div>
 					<div class="text-center" v-if="currentEvent.store.name">
-					    <h4 v-if="currentEvent.eventable_type == 'Store'" class="event_store_name caps">{{ currentEvent.store.name }}</h4>
-						<h4 v-if="currentEvent.store.phone" class="store_dets_title">{{ currentEvent.store.phone }}</h4>
-						<h4 v-if="currentEvent.store.website" class="store_dets_title"> 
-						    <a :href="'//' + currentEvent.store.website" target="_blank">{{ $t("stores_page.store_website") }}</a>
-					    </h4>
-						<h4 v-if="storeHours.length > 0" class="store_dets_title">{{ $t("stores_page.store_hours") }}</h4>
-						<ul class="store_hours_list">
-							<li v-if="storeHours" v-for="hour in storeHours">
-								{{ hour.day_of_week | moment("dddd", timezone) }}: {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}
-							</li>
-						</ul>
-						<div class="contest_btn" v-if="currentEvent.promotionable_type == 'Store'">
-							<router-link :to="'/stores/' + currentEvent.store.slug"> {{ $t("stores_page.store_dets_loc") }}</router-link>
-						</div>
+					 <!--   <h4 v-if="currentEvent.eventable_type == 'Store'" class="event_store_name caps">{{ currentEvent.store.name }}</h4>-->
+						<!--<h4 v-if="currentEvent.store.phone" class="store_dets_title">{{ currentEvent.store.phone }}</h4>-->
+						<!--<h4 v-if="currentEvent.store.website" class="store_dets_title"> -->
+						<!--    <a :href="'//' + currentEvent.store.website" target="_blank">{{ $t("stores_page.store_website") }}</a>-->
+					 <!--   </h4>-->
+						<!--<h4 v-if="storeHours.length > 0" class="store_dets_title">{{ $t("stores_page.store_hours") }}</h4>-->
+						<!--<ul class="store_hours_list">-->
+						<!--	<li v-if="storeHours" v-for="hour in storeHours">-->
+						<!--		{{ hour.day_of_week | moment("dddd", timezone) }}: {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}-->
+						<!--	</li>-->
+						<!--</ul>-->
+						<!--<div class="contest_btn" v-if="currentEvent.promotionable_type == 'Store'">-->
+						<!--	<router-link :to="'/stores/' + currentEvent.store.slug"> {{ $t("stores_page.store_dets_loc") }}</router-link>-->
+						<!--</div>-->
 					</div>
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
