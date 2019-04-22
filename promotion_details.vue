@@ -49,7 +49,6 @@
 				    <div v-if="currentPromo.promotionable_type == 'Store'" class="visible_phone">
 					    <h4 class="event_store_name caps">{{currentPromo.store.name}}</h4>
 					</div>
-					
 					<p class="promo_div_date" v-if="isMultiDay(currentPromo)">
 					    <i class="fa fa-calendar"></i>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}
 				    </p>
