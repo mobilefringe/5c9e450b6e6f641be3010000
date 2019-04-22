@@ -14,7 +14,6 @@
 			    </div>
 				<div class="col-sm-4 promo_logo_container hidden_phone">
 					<div class="image_container details_store_image">
-
 						<div v-if="currentStore.no_store_logo" class="store_details_image center-block">
                             <div class="no_logo">
                                 <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
@@ -28,7 +27,6 @@
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
 					<div class="col-sm-12 no_padding">
-						<!--<png-map ref="pngmapref" v-bind:png-map-url="getPNGurl" :initial-position="'1250 1250'" :height="_.toNumber('625')" @updateMap="updatePNGMap"></png-map>-->
 						<mapplic-map ref="mapplic_ref" :height="358" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" tooltiplabel="View Store Details" @updateMap="updateSVGMap"></mapplic-map>
 					</div>
 				</div>
@@ -37,26 +35,26 @@
 			<div class="row margin_30 purple_line">
 				<div class="col-sm-4">
 					<div class="text-center">
-					    <h3 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentStore.name_2}}</h3>
-						<h3 class="event_store_name caps" v>{{currentStore.name}}</h3>
-						<h4 v-if="currentStore.phone" class="store_dets_title"> <a :href="'tel:'+currentStore.phone">{{currentStore.phone}}</a></h4>
-						<h4 v-if="currentStore.website" class="store_dets_title"> <a :href="'http://' + currentStore.website" target="_blank">{{$t("stores_page.store_website")}}</a></h4>
-						<h4 v-if="storeHours.length > 0 " class="store_dets_title">{{$t("stores_page.store_hours")}}</h4>
+						<h3 class="event_store_name caps">{{ currentStore.name }}</h3>
+						<h4 v-if="currentStore.phone" class="store_dets_title"><a :href="'tel:' + currentStore.phone">{{ currentStore.phone }}</a></h4>
+						<h4 v-if="currentStore.website" class="store_dets_title">
+						    <a :href="'http://' + currentStore.website" target="_blank">{{ $t("stores_page.store_website") }}</a>
+					    </h4>
+						<h4 v-if="storeHours.length > 0 " class="store_dets_title">{{ $t("stores_page.store_hours") }}</h4>
 						<ul class="store_hours_list">
 							<li v-if="storeHours" v-for="hour in storeHours" class="col-xs-12">
-							    <span class="col-xs-5 text-left">{{hour.day_of_week | moment("dddd", timezone)}}</span>
+							    <span class="col-xs-5 text-left">{{ hour.day_of_week | moment("dddd", timezone) }}</span>
 								<span v-if="hour.is_closed" class="col-xs-7 text-left">Closed</span>
-								<span v-else class="col-xs-7 text-left">{{hour.open_time | moment("h:mm A", timezone)}} - {{hour.close_time | moment("h:mm A", timezone)}}</span>
+								<span v-else class="col-xs-7 text-left">{{ hour.open_time | moment("h:mm A", timezone) }} - {{ hour.close_time | moment("h:mm A", timezone) }}</span>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<hr class="green_hr visible_phone">
 				<div class="col-sm-8 text-left">
-					<h4 v-if="currentStore.rich_description" class="store_dets_title caps"> {{$t("stores_page.about_us")}}</h4>
+					<h4 v-if="currentStore.rich_description" class="store_dets_title caps">{{ $t("stores_page.about_us") }}</h4>
 					<div class="text-left promo_description">
-						<p v-if="locale=='en-ca'" v-html="currentStore.rich_description"></p>
-						<p v-else v-html="currentStore.rich_description_2"></p>
+						<p v-html="currentStore.rich_description"></p>
 					</div>
 					<div class="store_promo_container" v-if="promotions.length > 0">
 						<div class="promo_container_title text-left caps"></div>
