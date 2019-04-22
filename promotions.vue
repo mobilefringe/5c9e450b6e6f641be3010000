@@ -1,12 +1,10 @@
 <template>
 	<div v-if="dataloaded">
 		<div class="page_header" v-if="pageBanner" v-lazy:background-image="pageBanner.image_url">
-			<!--http://via.placeholder.com/1920x300-->
 			<div class="site_container">
 				<div class="header_content caps">
 					<h1>{{$t("promos_page.promotions")}}</h1>
 					<h2 style="display:none;">Scroll to  view promotions</h2>
-					<h3 style="display:none;">View all promotions below</h3>
 				</div>
 			</div>
 		</div>
@@ -21,24 +19,23 @@
                                     <h2 class="store_details_name">{{ promo.store.name }}</h2>
                                 </div>    
                             </div>
-                            <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
+                            <div v-else class="store_details_image center-block">
+                                <img :src="checkImageURL(promo)" :alt="promo.name" />
+                            </div>
                         </div>
 					</div>
 					<div class="col-sm-6 col-md-9 event_dets_container">
 						<h4 class="event_name caps">{{promo.name}}</h4>
-	
 						<div v-if="promo.promotionable_type == 'Store'">
 						    <h4 class="event_store_name caps" >{{promo.store.name}}</h4>
-				
 						</div>
-						
 						<div class="event_thick_line"></div>
 						<p class="event_dates">
 						    <span v-if="isMultiDay(promo)"><i class="fa fa-calendar"></i> {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
 						    <span v-else><i class="fa fa-calendar"></i> {{ promo.start_date | moment("MMM D", timezone) }}</span>
 					    </p>
 						<p class="event_desc">{{promo.description_short}}</p>
-						<div class="text-right col-md-6 col-sm-12" v-if="promo">
+						<div class="text-right col-md-6 col-sm-12 no_padding" v-if="promo">
 							<router-link :to="'/promotions/'+ promo.slug" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :aria="promo.name">
 							   {{ $t("promos_page.read_more") }} <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
 						    </router-link>
