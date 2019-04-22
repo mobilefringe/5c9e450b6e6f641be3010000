@@ -75,11 +75,10 @@
             watch: {
                 currentEvent : function (){
                     if (this.currentEvent != null) {
-                        if (this.currentEvent.store != null && this.currentEvent.store != undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
-                            this.currentEvent.store.store_front_url_abs = this.property.default_logo_url_black;
-                        } else if (this.currentEvent.store == null || this.currentEvent.store == undefined) {
-                            this.currentEvent.store = {};
-                            this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url_black;
+                        if (_.includes(this.currentEvent.image_url, 'missing')) {
+                            this.currentEvent.image_url = "";
+                        } else {
+                            this.currentEvent.image_url = this.currentEvent.image_url;
                         }
                         
                         var vm = this;
