@@ -120,7 +120,7 @@
                             value.description_short = _.truncate(value.description, { 'length': 150 });
                             
                             if (_.isEmpty(value.store)) {
-                                value.image_url = vm.siteInfo.default_logo_url;
+                                value.image_url = vm.property.default_logo_url;
                             } else {
                                 if (_.includes(value.store.store_front_url_abs, 'missing')) {
                                     value.no_logo = true;
