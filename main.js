@@ -184,7 +184,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
             },
             onOptionSelect(option) {
                 this.search_result = "";
-                this.$router.push("/stores/"+option.slug);
+                this.$router.push("/stores/" + option.slug);
             },
             enableStickyNavbar(e) {
                 if (window.pageYOffset >= this.isSticky) {
@@ -192,17 +192,15 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 } else {
                     this.stickyMenu = false;
                 }
-
             },
             toggleSubMenu (name) {
-               this.menu_items.map(menu => {
-                    if(menu.name !== name) {
+                this.menu_items.map(menu => {
+                    if (menu.name !== name) {
                         menu.show_sub_menu = false;
                     }
                 });
             },
-            shareURL(page,slug){
-                console.log("page, slug", page, slug)
+            shareURL(page, slug) {
                 var share_url= "http://www.prairiemall.ca/" + page + "/" + slug;
                 return share_url;
             },
