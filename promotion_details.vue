@@ -135,10 +135,9 @@
                 this.loadData().then(response => {
                     this.updateCurrentPromo(this.id);
                     var temp_repo = this.findRepoByName('Promos Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
@@ -148,6 +147,14 @@
             watch: {
                 currentPromo : function (){
                     if(this.currentPromo != null) {
+                        if (this.currentPromo.store  && _.includes(this.currentPromo.store.store_front_url_abs, 'missing')) {
+                            // this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
+                            this.currentPromo.store.no_store_logo = true;
+                        } else if (!this.currentPromo.store) {
+                            this.currentPromo.store = {};
+                            this.currentPromo.store.store_front_url_abs = this.property.default_logo_url_black;
+                        }
+                        
                         if (_.includes(this.currentPromo.image_url, 'missing')) {
                             this.currentPromo.image_url = "";
                         }
