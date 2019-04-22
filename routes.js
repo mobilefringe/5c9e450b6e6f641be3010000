@@ -53,7 +53,7 @@ define([], function() {
             ]
         },
         {
-            path: '/careers',
+            path: '/jobs',
             component: view('default'),
             children: [{
                     path: '',
