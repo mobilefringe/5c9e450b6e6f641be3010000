@@ -41,8 +41,7 @@
 </template>
 
 <script>
-    define(['Vue', 'vuex', 'moment', 'vue-lazy-load'], function(Vue, Vuex, moment, VueLazyload) {
-        Vue.use(VueLazyload);
+    define(['Vue', 'vuex', 'moment'], function(Vue, Vuex, moment) {
         return Vue.component("event-details-component", {
             template: template, // the variable template will be injected,
             data: function() {
@@ -56,8 +55,8 @@
             props:['id', 'locale'],
             beforeRouteUpdate(to, from, next) {
                 this.currentEvent = this.findEventBySlug(to.params.id);
-                    if (this.currentEvent === null || this.currentEvent === undefined){
-                        this.$router.replace('/');
+                    if (this.currentEvent === null || this.currentEvent === undefined) {
+                        this.$router.replace('/events');
                     }
                 next();
             },
@@ -65,10 +64,9 @@
                 this.loadData().then(response => {
                     this.updatecurrentEvent(this.id);
                     var temp_repo = this.findRepoByName('Events Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
@@ -77,14 +75,14 @@
             },
             watch: {
                 currentEvent : function (){
-                    if(this.currentEvent != null) {
+                    if (this.currentEvent != null) {
                         if (this.currentEvent.store != null && this.currentEvent.store != undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
                             this.currentEvent.store.store_front_url_abs = this.property.default_logo_url_black;
-                        }
-                        else if (this.currentEvent.store == null || this.currentEvent.store == undefined) {
+                        } else if (this.currentEvent.store == null || this.currentEvent.store == undefined) {
                             this.currentEvent.store = {};
                             this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url_black;
                         }
+                        
                         var vm = this;
                         var temp_event = [];
                         var current_id =_.toNumber(this.currentEvent.id);
@@ -97,7 +95,7 @@
                         });
                         this.storeEvents = temp_event;
                     }
-                    if(this.currentEvent.store) {
+                    if (this.currentEvent.store) {
                         var storeHours = [];
                         var vm = this;
                         _.forEach(this.currentEvent.store.store_hours, function (value, key) {
@@ -123,16 +121,13 @@
                     'timezone',
                     'findRepoByName',
                     'findHourById'
-                ]),
-                allEvents() {
-                    return this.processedEvents;
-                },
+                ])
             },
             methods: {
-                updatecurrentEvent (id) {
+                updatecurrentEvent(id) {
                     this.currentEvent = this.findEventBySlug(id);
-                    if (this.currentEvent === null || this.currentEvent === undefined){
-                        this.$router.replace('/');
+                    if (this.currentEvent === null || this.currentEvent === undefined) {
+                        this.$router.replace('/events');
                     }
                 },
                 isMultiDay(currentEvent) {
@@ -147,8 +142,10 @@
                 },
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "events"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "events"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
