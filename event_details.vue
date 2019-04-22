@@ -10,14 +10,13 @@
 		</div>
 		<div class="site_container">
 			<div class="row">
-				<div class="col-sm-12 promo_image_container text-left">
+				<div class="col-sm-12">
 					<router-link to="/events"><i class="fa fa-angle-left"></i> {{$t("events_page.back_to_events")}}</router-link>
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-if="locale=='en-ca'">{{currentEvent.name}}</h3>
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-else>{{currentEvent.name_2}}</h3>
-					<div class="row">
-						<p class="promo_div_date pull-left" v-if="isMultiDay(currentEvent)"><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
-						<p class="promo_div_date pull-left" v-else><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone) }}</p>
-					</div>
+					<h3 class="promo_name" style="margin: 20px auto 0px;">{{ currentEvent.name }}</h3>
+					<p class="promo_div_date">
+					    <span v-if="isMultiDay(currentEvent)"><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</span>
+						<span v-else><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone) }}</span>
+					</p>
 					<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
 						<div class="blog-social-share" style="margin: 0 auto 15px;">
 							<div class="social_share">
@@ -30,14 +29,11 @@
 							</div>
 						</div>
 					</social-sharing>
-					<div class="col-sm-12 no_padding text-left">
-						<img v-if="!_.includes(currentEvent.image_url, 'missing')" v-lazy="currentEvent.image_url" class="image" :alt="currentEvent.name"/>
-						<img v-else class="image" v-lazy="currentEvent.store.store_front_url_abs" />
-						<div class="text-left promo_description">
-							<p v-if="locale=='en-ca'" v-html="currentEvent.rich_description"></p>
-							<p v-else v-html="currentEvent.rich_description_2"></p>
-						</div>
-					</div>
+				</div>
+				<div class="col-sm-12">
+					<img v-if="!_.includes(currentEvent.image_url, 'missing')" :src="currentEvent.image_url" class="image" :alt="currentEvent.name"/>
+					<img v-else class="image" :src="currentEvent.store.store_front_url_abs" />
+					<div class="text-left promo_description" v-html="currentEvent.rich_description"></div>
 				</div>
 			</div>
 		</div>
