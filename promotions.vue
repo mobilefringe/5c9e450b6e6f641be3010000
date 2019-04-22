@@ -19,9 +19,7 @@
                                     <h2 class="store_details_name">{{ promo.store.name }}</h2>
                                 </div>    
                             </div>
-                            <div v-else class="store_details_image center-block">
-                                <img :src="checkImageURL(promo)" :alt="promo.name" />
-                            </div>
+                            <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
                         </div>
 					</div>
 					<div class="col-sm-6 col-md-9 event_dets_container">
@@ -71,9 +69,10 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload) {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue-paginate"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload, VuePaginate) {
         Vue.use(Meta);
         Vue.use(VueLazyload);
+        Vue.use(VuePaginate);
         return Vue.component("promos-component", {
             template: template, // the variable template will be injected
             props:['locale'],
@@ -83,6 +82,7 @@
                     filteredPromos:[],
                     dataloaded: false,
                     pageBanner: null,
+                    // paginate: ['promos'],
                     promos : null,
                     incrementBy: 5,
                     showMore: 5,
