@@ -18,7 +18,7 @@
 						<span v-else><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone) }}</span>
 					</p>
 					<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
-						<div class="blog-social-share" style="margin: 0 auto 15px;">
+						<div class="blog-social-share" style="margin: 0 auto 20px;">
 							<div class="social_share">
 								<network network="facebook">
 									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
