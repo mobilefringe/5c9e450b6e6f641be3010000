@@ -47,7 +47,7 @@
 				<div class="col-sm-4 promo_logo_container hidden_phone">
 					<div class="image_container details_store_image">
                         <div class="store_details_image center-block">
-                            <img :src="currentEvent.store_logo" :alt="currentEvent.store.name + ' Logo'" />
+                            <img :src="currentEvent.store_logo" :alt="property.name + ' Logo'" />
                         </div>
 					</div>
 					<div class="text-center" v-if="currentEvent.store.name">
