@@ -1,7 +1,6 @@
 <template>
 	<div class="page_container store_dets_container" v-if="dataLoaded" id="store_dets_container">
 		<div class="page_header" v-if="pageBanner" v-lazy:background-image="pageBanner.image_url">
-			<!--http://via.placeholder.com/1920x300-->
 			<div class="site_container">
 				<div class="header_content">
 					<h1>{{$t("stores_page.shopping")}}</h1>
@@ -11,10 +10,7 @@
 		<div class="site_container">
 			<div class="row">
 			    <div class="col-sm-12 store_router">
-    			    <router-link to="/stores">
-    				    <i class="fa fa-angle-left"></i> 
-    				    {{$t("stores_page.back_to_stores")}}
-    				</router-link>
+    			    <i class="fa fa-angle-left"></i> <router-link to="/stores">{{ $t("stores_page.back_to_stores") }}</router-link>
 			    </div>
 				<div class="col-sm-4 promo_logo_container hidden_phone">
 					<div class="image_container details_store_image">
