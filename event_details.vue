@@ -8,35 +8,6 @@
 				</div>
 			</div>
 		</div>
-		<!--<div class="site_container">-->
-		<!--	<div class="row margin_40">-->
-		<!--		<div class="col-sm-12">-->
-		<!--			<router-link to="/events"><i class="fa fa-angle-left"></i> {{$t("events_page.back_to_events")}}</router-link>-->
-		<!--			<h3 class="promo_name" style="margin: 20px auto 0px;">{{ currentEvent.name }}</h3>-->
-		<!--			<p class="promo_div_date">-->
-		<!--			    <span v-if="isMultiDay(currentEvent)"><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</span>-->
-		<!--				<span v-else><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone) }}</span>-->
-		<!--			</p>-->
-		<!--			<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >-->
-		<!--				<div class="blog-social-share" style="margin: 0 auto 20px;">-->
-		<!--					<div class="social_share">-->
-		<!--						<network network="facebook">-->
-		<!--							<i class="fa fa-facebook social_icons" aria-hidden="true"></i>-->
-		<!--						</network>-->
-		<!--						<network network="twitter">-->
-		<!--							<i class="fa fa-twitter social_icons" aria-hidden="true"></i>-->
-		<!--						</network>-->
-		<!--					</div>-->
-		<!--				</div>-->
-		<!--			</social-sharing>-->
-		<!--		</div>-->
-		<!--		<div class="col-sm-12">-->
-		<!--			<img v-if="currentEvent.image_url" class="promo_img" :src="currentEvent.image_url" :alt="currentEvent.name"/>-->
-		<!--			<div class="text-left promo_description" v-html="currentEvent.rich_description"></div>-->
-		<!--		</div>-->
-		<!--	</div>-->
-		<!--</div>-->
-		
 		<div class="site_container">
 		    <div class="row">
 		        <div class="col-sm-12 previous_router">
@@ -53,15 +24,6 @@
 					<div class="text-center" v-if="property">
 					    <h4 class="event_store_name caps">{{ property.name }}</h4>
 						<h4 v-if="property.contact_phone" class="store_dets_title">{{ property.contact_phone }}</h4>
-						<!--<h4 v-if="currentEvent.store.website" class="store_dets_title"> -->
-						<!--    <a :href="'//' + currentEvent.store.website" target="_blank">{{ $t("stores_page.store_website") }}</a>-->
-					 <!--   </h4>-->
-						<!--<h4 v-if="storeHours.length > 0" class="store_dets_title">{{ $t("stores_page.store_hours") }}</h4>-->
-						<!--<ul class="store_hours_list">-->
-						<!--	<li v-if="storeHours" v-for="hour in storeHours">-->
-						<!--		{{ hour.day_of_week | moment("dddd", timezone) }}: {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}-->
-						<!--	</li>-->
-						<!--</ul>-->
 						<div class="contest_btn">
 							<router-link to="/contact-us">Contact Us</router-link>
 						</div>
@@ -135,33 +97,7 @@
                         if (_.includes(this.currentEvent.image_url, 'missing')) {
                             this.currentEvent.image_url = "";
                         }
-                        
-                        // var vm = this;
-                        // var temp_event = [];
-                        // var current_id =_.toNumber(this.currentEvent.id);
-                        // _.forEach(this.currentEvent.store.event, function(value, key) {
-                        //     if(_.toNumber(value) != current_id){
-                        //         var current_event = vm.findEventById(value);
-                        //         current_event.description_short = _.truncate(current_event.description, { 'length': 70 });
-                        //         temp_event.push(current_event);
-                        //     }
-                        // });
-                        // this.storeEvents = temp_event;
                     }
-                    // if (this.currentEvent.store) {
-                    //     var storeHours = [];
-                    //     var vm = this;
-                    //     _.forEach(this.currentEvent.store.store_hours, function (value, key) {
-                    //         var hour = vm.findHourById(value);
-                    //         if(hour.day_of_week === 0){
-                    //             hour.order = 7;
-                    //         } else {
-                    //             hour.order = hour.day_of_week;
-                    //         }
-                    //         storeHours.push();
-                    //     });
-                    //     this.storeHours = _.sortBy(storeHours, [function(o) { return o.order; }]);;
-                    // }
                 }
             },
             computed: {
