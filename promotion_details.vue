@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div class="site_container">
-			<div class="row">
+			<div class="row margin_40">
 				<div class="col-sm-12">
 					<router-link to="/promotions">
 					    <i class="fa fa-angle-left"></i> {{$t("promos_page.back_to_promos")}}
