@@ -8,17 +8,84 @@
 				</div>
 			</div>
 		</div>
+		<!--<div class="site_container">-->
+		<!--	<div class="row margin_40">-->
+		<!--		<div class="col-sm-12">-->
+		<!--			<router-link to="/events"><i class="fa fa-angle-left"></i> {{$t("events_page.back_to_events")}}</router-link>-->
+		<!--			<h3 class="promo_name" style="margin: 20px auto 0px;">{{ currentEvent.name }}</h3>-->
+		<!--			<p class="promo_div_date">-->
+		<!--			    <span v-if="isMultiDay(currentEvent)"><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</span>-->
+		<!--				<span v-else><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone) }}</span>-->
+		<!--			</p>-->
+		<!--			<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >-->
+		<!--				<div class="blog-social-share" style="margin: 0 auto 20px;">-->
+		<!--					<div class="social_share">-->
+		<!--						<network network="facebook">-->
+		<!--							<i class="fa fa-facebook social_icons" aria-hidden="true"></i>-->
+		<!--						</network>-->
+		<!--						<network network="twitter">-->
+		<!--							<i class="fa fa-twitter social_icons" aria-hidden="true"></i>-->
+		<!--						</network>-->
+		<!--					</div>-->
+		<!--				</div>-->
+		<!--			</social-sharing>-->
+		<!--		</div>-->
+		<!--		<div class="col-sm-12">-->
+		<!--			<img v-if="currentEvent.image_url" class="promo_img" :src="currentEvent.image_url" :alt="currentEvent.name"/>-->
+		<!--			<div class="text-left promo_description" v-html="currentEvent.rich_description"></div>-->
+		<!--		</div>-->
+		<!--	</div>-->
+		<!--</div>-->
+		
 		<div class="site_container">
+		    <div class="row">
+		        <div class="col-sm-12 previous_router">
+    		        <i class="fa fa-angle-left"></i> <router-link to="/promotions">{{ $t("events_page.back_to_events") }}</router-link>
+    		    </div>
+		    </div>
 			<div class="row margin_40">
-				<div class="col-sm-12">
-					<router-link to="/events"><i class="fa fa-angle-left"></i> {{$t("events_page.back_to_events")}}</router-link>
-					<h3 class="promo_name" style="margin: 20px auto 0px;">{{ currentEvent.name }}</h3>
-					<p class="promo_div_date">
-					    <span v-if="isMultiDay(currentEvent)"><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</span>
-						<span v-else><i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone) }}</span>
-					</p>
-					<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
-						<div class="blog-social-share" style="margin: 0 auto 20px;">
+				<div class="col-sm-4 promo_logo_container hidden_phone">
+					<div class="image_container details_store_image">
+						<div v-if="currentEvent.store.no_store_logo" class="store_details_image center-block">
+                            <div class="no_logo">
+                                <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                <h2 class="store_details_name">{{ currentEvent.store.name }}</h2>
+                            </div>    
+                        </div>
+                        <div v-else class="store_details_image center-block">
+                            <img :src="currentEvent.store.store_front_url_abs" :alt="currentEvent.store.name + ' Logo'" />
+                        </div>
+					</div>
+					<div class="text-center" v-if="currentEvent.store.name">
+					    <h4 v-if="currentEvent.jobable_type == 'Store'" class="event_store_name caps">{{ currentEvent.store.name }}</h4>
+						<h4 v-if="currentEvent.store.phone" class="store_dets_title">{{ currentEvent.store.phone }}</h4>
+						<h4 v-if="currentEvent.store.website" class="store_dets_title"> 
+						    <a :href="'//' + currentEvent.store.website" target="_blank">{{ $t("stores_page.store_website") }}</a>
+					    </h4>
+						<h4 v-if="storeHours.length > 0" class="store_dets_title">{{ $t("stores_page.store_hours") }}</h4>
+						<ul class="store_hours_list">
+							<li v-if="storeHours" v-for="hour in storeHours">
+								{{ hour.day_of_week | moment("dddd", timezone) }}: {{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}
+							</li>
+						</ul>
+						<div class="contest_btn" v-if="currentEvent.promotionable_type == 'Store'">
+							<router-link :to="'/stores/' + currentEvent.store.slug"> {{ $t("stores_page.store_dets_loc") }}</router-link>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 promo_image_container text-left">
+					<h3 class="promo_name">{{currentEvent.name}}</h3>
+				    <div v-if="currentEvent.promotionable_type == 'Store'" class="visible_phone">
+					    <h4 class="event_store_name caps">{{currentEvent.store.name}}</h4>
+					</div>
+					<p class="promo_div_date" v-if="isMultiDay(currentEvent)">
+					    <i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}
+				    </p>
+					<p class="promo_div_date pull-left" v-else>
+					    <i class="fa fa-calendar"></i>{{currentEvent.start_date | moment("MMM D", timezone) }}
+				    </p>
+					<social-sharing :url="$root.shareURL('jobs',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
+						<div class="blog-social-share" style="margin: 0 auto 15px;">
 							<div class="social_share">
 								<network network="facebook">
 									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
@@ -29,8 +96,6 @@
 							</div>
 						</div>
 					</social-sharing>
-				</div>
-				<div class="col-sm-12">
 					<img v-if="currentEvent.image_url" class="promo_img" :src="currentEvent.image_url" :alt="currentEvent.name"/>
 					<div class="text-left promo_description" v-html="currentEvent.rich_description"></div>
 				</div>
