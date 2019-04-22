@@ -151,10 +151,10 @@
                     }
                 },
                 loadMoreItems() {
-                  if (this.showMore <= this.promos.length) {
-                    var num = this.showMore + this.incrementBy;
-                    this.showMore = num;
-                  }
+                    if (this.showMore <= this.promos.length) {
+                        var num = this.showMore + this.incrementBy;
+                        this.showMore = num;
+                    }
                 },
                 isMultiDay(promo) {
                     var timezone = this.timezone
