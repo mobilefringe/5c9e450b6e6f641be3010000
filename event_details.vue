@@ -47,7 +47,7 @@
 				<div class="col-sm-4 promo_logo_container hidden_phone">
 					<div class="image_container details_store_image">
                         <div class="store_details_image center-block">
-                            <img :src="currentEvent.store.store_front_url_abs" :alt="currentEvent.store.name + ' Logo'" />
+                            <img :src="currentEvent.store_logo" :alt="currentEvent.store.name + ' Logo'" />
                         </div>
 					</div>
 					<div class="text-center" v-if="currentEvent.store.name">
@@ -131,6 +131,7 @@
             watch: {
                 currentEvent : function (){
                     if (this.currentEvent != null) {
+                        this.currentEvent.store_logo = this.property.default_logo_url_black;
                         if (_.includes(this.currentEvent.image_url, 'missing')) {
                             this.currentEvent.image_url = "";
                         }
