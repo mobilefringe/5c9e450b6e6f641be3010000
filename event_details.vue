@@ -63,7 +63,7 @@
 						<!--	</li>-->
 						<!--</ul>-->
 						<div class="contest_btn">
-							<router-link :to="'/contact-us">Contact Us</router-link>
+							<router-link :to="/contact-us">Contact Us</router-link>
 						</div>
 					</div>
 				</div>
