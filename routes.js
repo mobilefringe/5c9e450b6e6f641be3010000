@@ -69,22 +69,6 @@ define([], function() {
             ]
         },
         {
-            path: '/posts',
-            component: view('default'),
-            children: [{
-                    path: '',
-                    component: view('posts'),
-                    name: 'postList'
-                },
-                {
-                    path: ':id',
-                    component: view('post_details'),
-                    name: 'postDetails',
-                    props: true
-                }
-            ]
-        },
-        {
             path: '/map',
             component: view('default'),
             redirect: '/404',
@@ -97,32 +81,14 @@ define([], function() {
         {
             path: '/hours',
             component: view('hours'),
-            // children: [{
-            //     path: '',
-            //     component: view('hours'),
-            //     name: 'hourList',
-            // }]
-        },
-        {
-            path: '/rewards_club',
-            component: view('default'),
             children: [{
                 path: '',
-                component: view('rewards_club'),
-                name: 'rewardsClub'
+                component: view('hours'),
+                name: 'hourList',
             }]
         },
         {
-            path: '/contest',
-            component: view('default'),
-            children: [{
-                path: '',
-                component: view('contest'),
-                name: 'contestList'
-            }]
-        },
-        {
-            path: '/contact_us',
+            path: '/contact-us',
             component: view('default'),
             children: [{
                 path: '',
@@ -143,7 +109,6 @@ define([], function() {
         {
             path: '/pages',
             component: view('default'),
-            redirect: '/',
             children: [{
                 path: ':id',
                 component: view('page_details'),
@@ -152,53 +117,12 @@ define([], function() {
             }]
         },
         {
-            path: '/find_us',
+            path: '/specialty-leasing',
             component: view('default'),
-            redirect: '/',
-            children: [{
-                path: '',
-                component: view('find_us'),
-                name: 'findUs'
-            }]
-        },
-        {
-            path: '/community',
-            component: view('default'),
-            redirect: '/',
-            children: [{
-                path: '',
-                component: view('community'),
-                name: 'community'
-            }]
-        },
-        {
-            path: '/restaurants',
-            component: view('default'),
-            redirect: '/',
-            children: [{
-                path: '',
-                component: view('restaurants'),
-                name: 'restaurants'
-            }]
-        },
-        {
-            path: '/specialty_leasing',
-            component: view('default'),
-            redirect: '/',
             children: [{
                 path: '',
                 component: view('specialty_leasing'),
                 name: 'Specialty Leasing'
-            }]
-        },
-        {
-            path: '/thank_you',
-            component: view('default'),
-            redirect: '/',
-            children: [{
-                path: '',
-                component: view('thank_you'),
-                name: 'thankYou'
             }]
         },
         {
@@ -214,11 +138,6 @@ define([], function() {
                     name: 'search-results'
                 }
             ]
-        },
-        {
-            path: '/404',
-            name: '404',
-            component: view('notfoundcomponent')
         },
         {
             path: '*',
