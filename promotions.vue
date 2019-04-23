@@ -71,9 +71,7 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload) {
-        Vue.use(Meta);
-        Vue.use(VueLazyload);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
         return Vue.component("promos-component", {
             template: template, // the variable template will be injected
             props:['locale'],
