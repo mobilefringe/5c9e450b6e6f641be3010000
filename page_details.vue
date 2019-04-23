@@ -96,6 +96,7 @@
                         if (this.currentPage.title == "Thank You") {
                             this.currentPage.title = "Newsletter"
                         }
+                        
                         console.log("id", id)
                         // Add custom banners for indivial pages
                         var temp_repo = null;
@@ -104,17 +105,8 @@
                         } else if (_.includes(id, 'sponsorship')) {
                             temp_repo = this.findRepoByName('Contact Banner');
                         }
-                        else if( _.includes(id, 'guest-services')) {
-                            temp_repo = this.findRepoByName('Guest Services Banner');
-                        }
-                        else if( _.includes(id, 'leasing')) {
-                            temp_repo = this.findRepoByName('Leasing Banner');
-                        }
-                        else {
-                            temp_repo = this.findRepoByName('Pages Banner');
-                        }
-                        
-                        if(temp_repo && temp_repo.images) {
+
+                        if (temp_repo && temp_repo.images) {
                             this.pageBanner = temp_repo.images[0];
                         } else {
                             this.pageBanner = {};
