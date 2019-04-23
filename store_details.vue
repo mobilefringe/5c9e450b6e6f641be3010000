@@ -33,7 +33,7 @@
 			</div>
 			<hr class="green_hr">
 			<div class="row margin_30 purple_line">
-				<div class="col-sm-4">
+				<div class="col-sm-12 col-md-4">
 					<div class="text-center">
 						<h3 class="event_store_name caps">{{ currentStore.name }}</h3>
 						<h4 v-if="currentStore.phone" class="store_dets_title"><a :href="'tel:' + currentStore.phone">{{ currentStore.phone }}</a></h4>
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 				<hr class="green_hr visible_phone">
-				<div class="col-sm-8 text-left">
+				<div class="col-sm-12 col-md-8 text-left">
 					<h4 v-if="currentStore.rich_description" class="store_dets_title caps">{{ $t("stores_page.about_us") }}</h4>
 					<div class="text-left promo_description">
 						<p v-html="currentStore.rich_description"></p>
