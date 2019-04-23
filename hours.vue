@@ -60,15 +60,14 @@
             },
             created() {
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Hours Banner');
-                    if(temp_repo && temp_repo.images) {
+                    var temp_repo = this.findRepoByName('Information Banner');
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
                     } else {
                         this.pageBanner= {};
                         this.pageBanner.image_url = "";
                     }
                 });
-                
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -82,9 +81,9 @@
                    var hours = _.sortBy(this.getPropertyHours, ['day_of_week']);
                     var ordered_hours = [];
                     _.forEach(hours, function (val, key) {
-                       if(val.day_of_week !== 0) {
-                           ordered_hours.push(val);
-                       }
+                        if(val.day_of_week !== 0) {
+                            ordered_hours.push(val);
+                        }
                     });
                     ordered_hours.push(hours[0]);
                     return ordered_hours;
@@ -104,13 +103,14 @@
             methods : {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([ 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
-                },
+                }
             }
         });
     });
