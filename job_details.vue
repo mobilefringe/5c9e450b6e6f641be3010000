@@ -114,14 +114,15 @@
             },
             created(){
                 this.loadData().then(response => {
-                    this.updateCurrentJob(this.id);
-                    var temp_repo = this.findRepoByName('Jobs Banner');
+                    var temp_repo = this.findRepoByName('Contact Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
                     } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
+                    
+                    this.updateCurrentJob(this.id);
                 });
             },
             watch: {
