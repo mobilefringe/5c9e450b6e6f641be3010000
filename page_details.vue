@@ -94,8 +94,7 @@
                         if (this.currentPage.title == "Thank You") {
                             this.currentPage.title = "Newsletter"
                         }
-                        
-                        console.log("id", id)
+
                         // Add custom banners for indivial pages
                         var temp_repo = null;
                         if (_.includes(id, 'gift-cards') || _.includes(id, 'guest-services') || _.includes(id, 'community-booth') || _.includes(id, 'family-lounge')) {
