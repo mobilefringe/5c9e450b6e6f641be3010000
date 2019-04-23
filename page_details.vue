@@ -54,10 +54,8 @@
             template: template, // the variable template will be injected,
             data: function() {
                 return {
-                    success_subscribe: false,
-                    currentPage: null,
                     pageBanner : null,
-                    accessibilityData : null
+                    currentPage: null
                 }
             },
             props:['id', 'locale'],
@@ -102,6 +100,8 @@
                         var temp_repo = null;
                         if (_.includes(id, 'gift-cards') || _.includes(id, 'guest-services') || _.includes(id, 'community-booth') || _.includes(id, 'family-lounge')) {
                             temp_repo = this.findRepoByName('Guest Services Banner');
+                        } else if (_.includes(id, 'about') || _.includes(id, 'accessibility')) {
+                            temp_repo = this.findRepoByName('Information Banner');
                         } else if (_.includes(id, 'sponsorship')) {
                             temp_repo = this.findRepoByName('Contact Banner');
                         }
