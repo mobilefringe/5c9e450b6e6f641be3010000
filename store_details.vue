@@ -127,7 +127,7 @@
             beforeRouteUpdate(to, from, next) {
                 this.currentStore = this.findStoreBySlug(to.params.id);
                 if (this.currentStore === null || this.currentStore === undefined){
-                    this.$router.replace('/');
+                    this.$router.replace('/stores');
                 }
                 next();
             },
@@ -148,13 +148,13 @@
             watch: {
                 currentStore: function() {
                     if ( _.includes(this.currentStore.store_front_url_abs, 'missing')) {
-                       this.currentStore.no_store_logo = true;
+                        this.currentStore.no_store_logo = true;
                     } else {
-                      this.currentStore.no_store_logo = false;
+                        this.currentStore.no_store_logo = false;
                     }
+                    //Store Promotions
                     var vm = this;
                     var temp_promo = [];
-                    var temp_job = [];
                     _.forEach(this.currentStore.promotions, function(value, key) {
                         var current_promo = vm.findPromoById(value);
                         current_promo.description_short = _.truncate(current_promo.description, {
@@ -162,6 +162,9 @@
                         });
                         temp_promo.push(current_promo);
                     });
+                    this.promotions = temp_promo;
+                    // Store Jobs
+                    var temp_job = [];
                     _.forEach(this.currentStore.jobs, function(value, key) {
                         var current_job = vm.findJobById(value);
                         current_job.description_short = _.truncate(current_job.description, {
@@ -169,20 +172,14 @@
                         });
                         temp_job.push(current_job);
                     })
-                    this.promotions = temp_promo;
                     this.jobs = temp_job;
-                    console.log(this.currentStore)
-                    console.log(this.jobs)
-                    console.log(this.promotions)
-                    
+                    //Store Hours
                     var storeHours = [];
-                    var vm = this;
                     _.forEach(this.currentStore.store_hours, function (value, key) {
                         var hour = vm.findHourById(value);
-                        if(hour.day_of_week === 0){
+                        if (hour.day_of_week === 0) {
                             hour.order = 7;
-                        }
-                        else {
+                        } else {
                             hour.order = hour.day_of_week;
                         }
                         storeHours.push(hour);
@@ -190,7 +187,6 @@
                     this.storeHours = _.sortBy(storeHours, [function(o) { return o.order; }]);
                 }
             },
-            
             computed: {
                 ...Vuex.mapGetters([
                     'property',
@@ -202,18 +198,11 @@
                     'findRepoByName',
                     'findHourById'
                 ]),
-                // getPNGurl () {
-                //     return "https://www.mallmaverick.com" + this.property.map_url;
-                // },
-                // pngMapRef() {
-                //     return this.$refs.pngmapref;
-                // },
-                
                 mapStores() {
                     var all_stores = this.processedStores;
                     _.forEach(all_stores, function(value, key) {
                         value.zoom = 2;
-                        if(value.svgmap_region == null){
+                        if (value.svgmap_region == null) {
                             value.svgmap_region = value.id;
                         }
                     });
@@ -223,7 +212,7 @@
                     return _.map(this.processedStores, 'name');
                 },
                 getSVGMap(){
-                  return "//mallmaverick.com"+this.property.svgmap_url;  
+                    return "//mallmaverick.com"+this.property.svgmap_url;  
                 },
                 floorList () {
                     var floor_list = [];
@@ -241,16 +230,19 @@
             methods: {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData","promotions"), this.$store.dispatch("getData", "jobs"),this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData","promotions"), 
+                            this.$store.dispatch("getData", "jobs"),
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
                 },
-                updateCurrentStore (id) {
+                updateCurrentStore(id) {
                     this.currentStore = this.findStoreBySlug(id);
                     if (this.currentStore === null || this.currentStore === undefined){
-                        this.$router.replace('/');
+                        this.$router.replace('/stores');
                     }
                 },
                 isMultiDay(promo) {
@@ -268,24 +260,20 @@
                 },
                 updateSVGMap(map) {
                     this.map = map;
-                     this.dropPin(this.currentStore);
+                    this.dropPin(this.currentStore);
                 },
                 checkImageURL(value) {
-                  if (_.includes(value.image_url, "missing")) {
-                    if (value.store === null || value.store === undefined) {
-                      return this.property.default_logo_url_black;
-                    } else if (
-                      value.store != null &&
-                      value.store != undefined &&
-                      _.includes(value.store.store_front_url_abs, "missing")
-                    ) {
-                      return this.property.default_logo_url_black;
+                    if (_.includes(value.image_url, "missing")) {
+                        if (value.store === null || value.store === undefined) {
+                            return this.property.default_logo_url_black;
+                        } else if (value.store != null && value.store != undefined && _.includes(value.store.store_front_url_abs, "missing")) {
+                            return this.property.default_logo_url_black;
+                        } else {
+                            return value.store.store_front_url_abs;
+                        }
                     } else {
-                      return value.store.store_front_url_abs;
+                        return value.promo_image_url_abs;
                     }
-                  } else {
-                    return value.promo_image_url_abs;
-                  }
                 }
             }
         });
