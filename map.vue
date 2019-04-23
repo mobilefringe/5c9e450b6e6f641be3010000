@@ -8,6 +8,14 @@
 			</div>
 		</div>
 		<div class="map_container site_container clearfix">
+		    <div class="row visible_phone">
+		        <div class="col-sm-12">
+                    <p class="text_left">Find Store :</p>
+    				<div class="alphabet-dd visible_phone" >
+    				    <v-select :options="allStores" label="name" :searchable="false" :on-change="dropPin" id="mobile_alpha_list" :placeholder="$t('stores_page.select_a_store')"></v-select>
+    			    </div>
+                </div>
+		    </div>
 			<div class="col-sm-4">
                 <div class="map_directory text-center hidden_phone">
                     <h2 style="display:none;" class="map_title caps">{{ $t("stores_page.find_store") }}</h2>
@@ -21,12 +29,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 visible_phone">
-                <p class="text_left">Find Store :</p>
-				<div class="alphabet-dd visible_phone" >
-				    <v-select :options="allStores" label="name" :searchable="false" :on-change="dropPin" id="mobile_alpha_list" :placeholder="$t('stores_page.select_a_store')"></v-select>
-			    </div>
-            </div>
+            
             <div class="col-md-8">
                 <div class="map light_border">
     				<mapplic-map ref="mapplic_ref" :height="650" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" tooltiplabel="View Store Details"></mapplic-map>
