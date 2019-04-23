@@ -11,7 +11,7 @@
 		    <div class="row visible_phone">
 		        <div class="col-sm-12">
                     <p class="text_left">Find Store :</p>
-    				<div class="alphabet-dd visible_phone" >
+    				<div class="alphabet-dd">
     				    <v-select :options="allStores" label="name" :searchable="false" :on-change="dropPin" id="mobile_alpha_list" :placeholder="$t('stores_page.select_a_store')"></v-select>
     			    </div>
                 </div>
