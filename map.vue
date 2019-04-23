@@ -20,12 +20,13 @@
 						</ul>
                     </div>
                 </div>
-                <div class="visible_phone">
-                    <p class="text_left">Find Store :</p>
-					<div class="alphabet-dd visible_phone" >
-					    <v-select :options="allStores" label="name" :searchable="false" :on-change="dropPin" id="mobile_alpha_list" :placeholder="$t('stores_page.select_a_store')"></v-select>
-				    </div>
-                </div>
+            </div>
+            <div class="col-sm-12 visible_phone">
+                <p class="text_left">Find Store :</p>
+				<div class="alphabet-dd visible_phone" >
+				    <v-select :options="allStores" label="name" :searchable="false" :on-change="dropPin" id="mobile_alpha_list" :placeholder="$t('stores_page.select_a_store')"></v-select>
+			    </div>
+                
             </div>
             <div class="col-sm-8">
                 <div class="map light_border">
