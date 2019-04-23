@@ -59,17 +59,16 @@
             },
             created (){
                 this.loadData().then(response => {
-                    this.dataloaded = true;
-                    this.filteredStores = this.allStores;
-
-                    var temp_repo = this.findRepoByName('Map Banner');
+                    var temp_repo = this.findRepoByName('Stores Banner');
                     if(temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
+                    
+                    this.filteredStores = this.allStores;
+                    this.dataloaded = true;
                 });
             },
             watch: {
