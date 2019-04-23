@@ -26,9 +26,8 @@
 				<div class="alphabet-dd visible_phone" >
 				    <v-select :options="allStores" label="name" :searchable="false" :on-change="dropPin" id="mobile_alpha_list" :placeholder="$t('stores_page.select_a_store')"></v-select>
 			    </div>
-                
             </div>
-            <div class="col-sm-8">
+            <div class="col-md-8">
                 <div class="map light_border">
     				<mapplic-map ref="mapplic_ref" :height="650" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" tooltiplabel="View Store Details"></mapplic-map>
     			</div>
