@@ -99,11 +99,10 @@
                         console.log("id", id)
                         // Add custom banners for indivial pages
                         var temp_repo = null;
-                        temp_repo = this.findRepoByName('Pages Banner');
-                        if ( _.includes(id, 'accessibility')) {
-                            temp_repo = this.findRepoByName('Accessibility Banner');
-                        } else if ( _.includes(id, 'gift-cards')) {
-                            temp_repo = this.findRepoByName('Gift Cards Banner');
+                        if (_.includes(id, 'gift-cards') || _.includes(id, 'guest-services') || _.includes(id, 'community-booth') || _.includes(id, 'family-lounge')) {
+                            temp_repo = this.findRepoByName('Guest Services Banner');
+                        } else if (_.includes(id, 'sponsorship')) {
+                            temp_repo = this.findRepoByName('Contact Banner');
                         }
                         else if( _.includes(id, 'guest-services')) {
                             temp_repo = this.findRepoByName('Guest Services Banner');
