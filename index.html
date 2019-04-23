@@ -34,7 +34,7 @@
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
             
-            ga('create', 'UA-115200481-23', 'auto');
+            ga('create', '', 'auto');
             ga('send', 'pageview');
         </script>
 	</head>
@@ -42,15 +42,14 @@
 	    {%raw-%} 
     		<div id="app" v-cloak>
     			<loader v-if="!dataLoaded"></loader>
-    			<!--<div class="main_content_container" v-if="dataLoaded">-->
-    			    <h1 style="display:none;">{{property.name}}</h1>
+    			    <h1 style="display:none;">{{ property.name }}</h1>
     			    <header-component  v-if="dataLoaded"></header-component>
     				<transition name="custom-classes-transition" enter-active-class="fadeIn">
     					<router-view class="router_content" :locale="locale"  v-if="dataLoaded"></router-view>
     				</transition>
     				<div class="home_subscription hidden_phone"  v-if="dataLoaded">
                         <div class="subscribeBlog content_container">
-                             <h2 class="stay_update caps">{{$t("footer.stay_uptodate")}}</h2> 
+                             <h2 class="stay_update caps">{{ $t("footer.stay_uptodate") }}</h2> 
                              <div id="newsletterBlogForm">
                                 <label for="fieldEmail" style="display:none">Email Address</label>
                                 <input id="fieldEmail" name="cm-tkyhii-tkyhii" class="form-control" type="email" v-model="newsletter_email" :placeholder="$t('footer.enter_email')" required/> 
@@ -97,12 +96,11 @@
     						</div>
     					</div>
     				</div>
-    			<!--</div>-->
     		</div>
     		<div class='modal-backdrop custom_backdrop hidden_now' id="popup_backdrop"></div>
 		{%endraw-%} 
 		<script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
 		<script src="https://unpkg.com/es6-shim@0.35.3/es6-shim.min.js"></script>
-		<script data-main="/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js" data-main="/main"></script>
 	</body>
 </html>
