@@ -1,6 +1,6 @@
 <template>
     <div id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
-        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+        <div class="page_header" v-if="pageBanner" :style="{ backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 61.52%, rgba(0,0,0,0.7) 100%), url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
 					<h1>Contact Us</h1>
@@ -75,11 +75,11 @@
             },
             created(){
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Contact Us Banner');
+                    var temp_repo = this.findRepoByName('Contact Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
                     } else {
-                        this.pageBanner= {};
+                        this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
                 });
