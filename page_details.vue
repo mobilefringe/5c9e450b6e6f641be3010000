@@ -1,11 +1,9 @@
 <template>
     <div v-if="currentPage">
-        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
-			<!--http://via.placeholder.com/1920x300-->
+        <div class="page_header" v-if="pageBanner" :style="{ backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 61.52%, rgba(0,0,0,0.7) 100%), url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
-					<h1 v-if="locale=='en-ca'">{{currentPage.title}}</h1>
-					<h1 v-else>{{currentPage.title_2}}</h1>
+					<h1>{{ currentPage.title }}</h1>
 					<h2 style="display:none;">Scroll to  view page details</h2>
 					<h3 style="display:none;">View page details</h3>
 				</div>
@@ -14,7 +12,7 @@
 		<div class="site_container inside_page_content page_content">
             <div class="row event_container"  v-if="accessibilityData"  v-for="promo in accessibilityData">
 				<div class="col-sm-12 col-md-12 event_dets_container">
-					<h4 class="event_name caps">{{promo.notice_title}}</h4>
+					<h4 class="event_name caps">{{ promo.notice_title }}</h4>
 					<div class="event_thick_line"></div>
 					<p class="event_dates">{{promo.service_completed_date | moment("MMMM D, YYYY", timezone)}}</p>
 					<p class="event_desc" v-html="promo.notice_text_approved"></p>
@@ -69,9 +67,6 @@
             },
             created(){
                this.updatePageData(this.id);
-            //   if(this.id == "bramaleacitycentre-accessibilty" ){
-            //       this.updateAccessibilityData();
-            //   }
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -83,8 +78,10 @@
             methods: {
                 loadData: async function(id) {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/" + id + ".json"}),this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/" + id + ".json"}),
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
@@ -92,21 +89,20 @@
                 },
                 updatePageData (id) {
                     this.loadData(id).then(response => {
-                        if(response == null || response == undefined) {
+                        if (response == null || response == undefined) {
                             this.$router.replace('/');
                         }
                         this.currentPage = response[0].data;
                         if (this.currentPage.title == "Thank You") {
                             this.currentPage.title = "Newsletter"
                         }
+                        console.log("id", id)
+                        // Add custom banners for indivial pages
                         var temp_repo = null;
-                        //Add custom banners for indivial pages 
                         temp_repo = this.findRepoByName('Pages Banner');
-                        //Add custom banners for indivial pages 
-                        if( _.includes(id, 'accessibility')) {
+                        if ( _.includes(id, 'accessibility')) {
                             temp_repo = this.findRepoByName('Accessibility Banner');
-                        }
-                        else if( _.includes(id, 'gift-cards')) {
+                        } else if ( _.includes(id, 'gift-cards')) {
                             temp_repo = this.findRepoByName('Gift Cards Banner');
                         }
                         else if( _.includes(id, 'guest-services')) {
@@ -118,28 +114,15 @@
                         else {
                             temp_repo = this.findRepoByName('Pages Banner');
                         }
+                        
                         if(temp_repo && temp_repo.images) {
                             this.pageBanner = temp_repo.images[0];
-                        }
-                        else {
+                        } else {
                             this.pageBanner = {};
                             this.pageBanner.image_url = "";
                         }
                     });
-                },
-                // updateAccessibilityData() {
-                //     var vm = this;
-                //     url = "//acc.speeker.co/get_display_templates?site_id=1";
-                //     $.getJSON(url).done(function(data){
-                //         var acc_data = data;
-                //         acc_data.map(item => {
-                //             item.notice_text_approved = _.replace(item.notice_text_approved, '<br/><br/>', '<br/>');
-                //         });
-                        
-                //         vm.accessibilityData =  _.sortBy(acc_data, [function(o) { return o.service_completed_date; }]).reverse();
-                //         console.log("accessibilityData",vm.accessibilityData)
-                //     });
-                // }
+                }
             }
         });
     });
