@@ -11,7 +11,7 @@
         <div class="margin_25_across padding_top_40 site_container">
             <div class="row"> 
                 <div class="col-sm-6 text-left" v-if="currentPage && currentPage.body">
-                    <div class="text-left contact_us_body" v-html="currentPage.body"></div>
+                    <div class="text-left page_body" v-html="currentPage.body"></div>
                 </div> 
                 <div class="col-sm-6 contact_contents">
                     <div class="description_text text_left caps">CONTACT US FOR QUESTIONS, COMMENTS AND MORE INFORMATION.</div>
