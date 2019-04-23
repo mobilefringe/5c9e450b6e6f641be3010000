@@ -42,7 +42,7 @@
 					    </h4>
 						<h4 v-if="storeHours.length > 0 " class="store_dets_title">{{ $t("stores_page.store_hours") }}</h4>
 						<ul class="store_hours_list">
-							<li v-if="storeHours" v-for="hour in storeHours" class="col-xs-12">
+							<li v-if="storeHours" v-for="hour in storeHours" class="col-sm-10 col-sm-offset-1">
 							    <span class="col-xs-5 text-left">{{ hour.day_of_week | moment("dddd", timezone) }}</span>
 								<span v-if="hour.is_closed" class="col-xs-7 text-right">Closed</span>
 								<span v-else class="col-xs-7 text-right">{{ hour.open_time | moment("h:mm A", timezone) }} - {{ hour.close_time | moment("h:mm A", timezone) }}</span>
