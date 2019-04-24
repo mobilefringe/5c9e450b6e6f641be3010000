@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="col-sm-9 search_result_content">
-                            <h3>{{ result.name }}</h3>
+                            <h4>{{ result.name }}</h4>
                             <p>{{ truncated(result.description) }}</p>
                             <router-link v-if="result.store_front_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'storeDetails', params:{ id:result.slug }}">
                                 <i class="fa fa-caret-right hvr-icon"></i> View Store Details
