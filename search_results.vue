@@ -46,7 +46,6 @@
                             </div>
                         </div>
                         <div v-else class="col-sm-3 search details_store_image">
-                        {{ result }}
                             <div class="store_details_image center-block">
                                 <img v-if="result.store != null" :src="result.store.image_url"/>   
                                 <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
