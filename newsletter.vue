@@ -69,11 +69,10 @@
             template: template, // the variable template will be injected
             data: function() {
                 return {
-                    currentPage: null,
+                    pageBanner: null,
                     form_data : {},
                     formSuccess : false,
-                    formError: false,
-                    pageBanner: null
+                    formError: false
                 }
             },
             created () {
@@ -108,14 +107,12 @@
                 validateBeforeSubmit(form) {
                     this.$validator.validateAll().then((result) => {
                         let errors = this.errors;
-                        if(errors && errors.items.length == 0){ 
-                            if(errors.length > 0) {
-                                console.log("Error", errors);
+                        if (errors && errors.items.length == 0) { 
+                            if (errors.length > 0) {
                                 this.formError = true;
                                 form.preventDefault();
                                 form.target.action = "";
-                            }
-                            else {
+                            } else {
                                 this.campaignMonitorCall($('#subForm'), '92D4C54F0FEC16E5ADC2B1904DE9ED1A784F37613E32FEE3CD464815387D96C2B09750119836ACA3D9670C89A45608486B3A59848BC22C59DE7304A8B405ECFC'); 
                             }
                         }
@@ -123,8 +120,9 @@
                 },
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([,this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
