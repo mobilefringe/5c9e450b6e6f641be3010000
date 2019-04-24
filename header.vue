@@ -45,14 +45,10 @@
     				    <transition name="custom-classes-transition" enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
     						<nav id="mobile_nav" v-show="show_mobile_menu">
     							<ul>
-    								<div class="mobile_menu_site_logo">
-    									<router-link to="/"><img src="//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1554129953732/prairiemall.png" :alt="property.name +' Mobile Logo'"/></router-link>
-    								</div>
     								<li v-for="(item,key) in menu_items" class="menu_item">
-    								<span @click="closeMobileMenu()" v-if="item.sub_menu == undefined">
-    								     <router-link :to="item.href" >{{$t(item.name)}}</router-link>
-    								</span>
-    							       
+        								<span @click="closeMobileMenu()" v-if="item.sub_menu == undefined">
+        								     <router-link :to="item.href" >{{$t(item.name)}}</router-link>
+        								</span>
     							        <div v-else>
     							            <b-card no-body class="mb-1">
                                                 <b-card-header header-tag="header" class="p-1" role="tab">
@@ -65,9 +61,10 @@
                                                 <b-collapse v-model="item.show_sub_menu" :id="$t(item.name)" :visible="item.show_sub_menu" accordion="my-accordion" role="tabpanel" class="accordion_body">
                                                     <b-card-body v-for="sub_menu in item.sub_menu">
                                                         <p class="card-text" @click="closeMobileMenu()">
-                                                            <!--<router-link :to="sub_menu.href">{{$t(sub_menu.name)}}</router-link>-->
                                                             <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{$t(sub_menu.name)}}</a>
-                    						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">{{$t(sub_menu.name)}}</router-link>
+                    						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">
+                    						                    {{$t(sub_menu.name)}}
+                						                    </router-link>
                     						                <router-link v-else :to="{name : sub_menu.router_name, params: { new_store: sub_menu.prop }, query:{new_store: 'new_store'}} ">{{$t(sub_menu.name)}}</router-link>
                                                         </p>
                                                     </b-card-body>
@@ -76,7 +73,6 @@
     							        </div>
     							    </li>
     							</ul>
-    							
     							<div class="small_hr"></div>
     							<div class="tel_num" v-if="property">
                                     <a v-if="property.contact_phone" :href="'tel:'+property.contact_phone">{{property.contact_phone}}</a>
