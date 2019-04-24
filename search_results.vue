@@ -54,17 +54,24 @@
                         <div class="col-sm-9 search_result_content">
                             <h4>{{ result.name }}</h4>
                             <p>{{ truncated(result.description) }}</p>
-                            <router-link v-if="result.store_front_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'storeDetails', params:{ id:result.slug }}">
-                                <i class="fa fa-caret-right hvr-icon"></i> View Store Details
+                            
+                            <router-link :to="'/promotions/'+ promo.slug" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :aria="promo.name">
+							   {{ $t("promos_page.read_more") }} <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
+						    </router-link>
+						    
+						    
+						    
+                            <router-link v-if="result.store_front_url_abs" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :to="{ name: 'storeDetails', params:{ id:result.slug }}">
+                                View Store Details <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
                             </router-link>
-                            <router-link v-else-if="result.promo_image_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'promotionDetails', params: { id: result.slug }}">
-                                <i class="fa fa-caret-right hvr-icon"></i> View Promotion Details 
+                            <router-link v-else-if="result.promo_image_url_abs" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :to="{ name: 'promotionDetails', params: { id: result.slug }}">
+                                View Promotion Details <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
                             </router-link>
-                            <router-link v-else-if="result.event_image_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'eventDetails', params: { id: result.slug }}">
-                                <i class="fa fa-caret-right hvr-icon"></i> View Event Details
+                            <router-link v-else-if="result.event_image_url_abs" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :to="{ name: 'eventDetails', params: { id: result.slug }}">
+                                View Event Details <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
                             </router-link>
-                            <router-link v-else-if="result.jobable_id" class="result_link hvr-icon-forward" :to="{ name: 'jobDetails', params: { id: result.slug }}">
-                                <i class="fa fa-caret-right hvr-icon"></i> View Job Details
+                            <router-link v-else-if="result.jobable_id" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :to="{ name: 'jobDetails', params: { id: result.slug }}">
+                                View Job Details <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
                             </router-link>
                         </div>
                     </div>                
