@@ -20,7 +20,7 @@
                     <div class="row result_container_row">
                         <div v-if="result.is_store" class="col-sm-3">
                             <div class="store_details_image center-block">
-                                <div v-if="(result.image_url && _.includes(result.image_url,'missing')) || (!result.image_url && _.includes(result.store.store_front_url_abs,'missing'))">
+                                <div v-if="(result.image_url && _.includes(result.image_url,'missing')) || (!result.image_url && _.includes(result.store.store_front_url_abs, 'missing'))">
                                     <div class="no_logo">
                                         <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
                                         <p class="store_details_name">
@@ -113,7 +113,11 @@
                     return _.truncate(string, { length: 150,  separator: " " });
                 },
                 updateResults() {
-                    if (this.$route.query.searchQuery !== null && this.$route.query.searchQuery !== undefined && this.$route.query.searchQuery.length > 0) {
+                    if (
+                        this.$route.query.searchQuery !== null &&
+                        this.$route.query.searchQuery !== undefined &&
+                        this.$route.query.searchQuery.length > 0
+                    ) {
                         if (
                             this.$route.params.results !== null &&
                             this.$route.params.results !== undefined &&
@@ -125,6 +129,7 @@
                     } else {
                         this.$router.push("/");
                     }
+           
                     console.log(this.searchResults)
                 },
                 checkResultImage(result){
