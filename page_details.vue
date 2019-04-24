@@ -16,24 +16,7 @@
         </div>
     </div>
 </template>
-<style>
-    .page_title {
-        /*border-top:1px solid #aea99e;*/
-        border-bottom:1px solid #aea99e;
-        height: 35px;
-        line-height: 35px;
-    }
-    #pages_container img{
-        width: 100%;
-        height: auto;
-    }
-    .acc_title {
-        margin-top:20px;
-    }
-    img {
-        max-width: 100%;
-    }
-</style>
+
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
         return Vue.component("page-details-component", {
