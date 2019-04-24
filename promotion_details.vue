@@ -97,15 +97,15 @@
             },
             created(){
                 this.loadData().then(response => {
-                    this.updateCurrentPromo(this.id);
-                    var temp_repo = this.findRepoByName('Promos Banner');
+                    var temp_repo = this.findRepoByName('Events Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
                     } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    this.promos = this.promotions;
+                    
+                    this.updateCurrentPromo(this.id);
                 });
             },
             watch: {
