@@ -164,6 +164,7 @@
                             return true
                         }
                     }
+                    return false
                 },
                 checkEventImage(result) {
                     if(result.event_image_url_abs){
