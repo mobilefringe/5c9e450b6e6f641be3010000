@@ -18,8 +18,8 @@
     		    </div> 
     			<div v-for="(result,index) in searchResults" :key="index">
                     <div class="row result_container_row">
-                        <div v-if="result.is_store" class="col-sm-3 store_details_image center-block">
-                            <div v-if="result.hasOwnProperty('promo_image_url_abs')">
+                        <div v-if="result.is_store" class="col-sm-3 details_store_image">
+                            <div v-if="result.hasOwnProperty('promo_image_url_abs')" class="store_details_image center-block">
                                 <img v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" />
                                 <img v-else-if="!checkPromoImage(result) && !checkResultImage(result)" :src="result.store.image_url" />
                                 <div v-else class="no_logo">
@@ -44,10 +44,12 @@
                                 <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
                             </div>
                         </div>
-                        <div v-else class="col-sm-3 store_details_image center-block">
-                            <img v-if="result.store != null" :src="result.store.image_url"/>   
-                            <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
-                            <img v-else :src="result.image_url" />
+                        <div v-else class="col-sm-3 details_store_image">
+                            <div class="store_details_image center-block">
+                                <img v-if="result.store != null" :src="result.store.image_url"/>   
+                                <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
+                                <img v-else :src="result.image_url" />
+                            </div>
                         </div>
                         <div class="col-sm-9 search_result_content">
                             <h3>{{result.name}}</h3>
