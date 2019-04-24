@@ -1,6 +1,6 @@
 <template>
 	<div class="page_container store_dets_container" v-if="dataLoaded" id="store_dets_container">
-		<div class="page_header" v-if="pageBanner" v-lazy:background-image="pageBanner.image_url">
+		<div class="page_header" v-if="pageBanner" :style="{ backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 61.52%, rgba(0,0,0,0.7) 100%), url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
 					<h1>{{$t("stores_page.shopping")}}</h1>
