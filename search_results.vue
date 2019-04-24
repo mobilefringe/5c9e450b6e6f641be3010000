@@ -70,6 +70,7 @@
                         </div>                
                     </div>
         		</div>
+        	</div>
             <div v-else class="row margin_40">
                 <div class="col-md-12" > 
                     <p>Sorry, there are no results that match your search. Please try again.</p>
