@@ -12,7 +12,9 @@
     		<div class="text-left" v-if="searchResults && searchResults.length > 0" id="searchResults">
     		    <div class="row">
     		        <div class="col-md-12">
-    		            <p v-if="searchResults.length > 1" class="search_result_title">Found {{ searchResults.length }} results matching "{{ searchQuery }}"</p>
+    		            <p v-if="searchResults.length > 1" class="search_result_title">
+    		                Found {{ searchResults.length }} results matching "{{ searchQuery }}"
+		                </p>
     		            <p v-else class="search_result_title">Found {{ searchResults.length }} resuls matching "{{ searchQuery }}"</p>
     		        </div>
     		    </div> 
@@ -20,10 +22,10 @@
                     <div class="row result_container_row">
                         <div v-if="result.is_store" class="col-sm-3 search details_store_image">
                             <div v-if="result.hasOwnProperty('promo_image_url_abs')" class="store_details_image center-block">
-                                <img v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" />
-                                <img v-else-if="!checkPromoImage(result) && !checkResultImage(result)" :src="result.store.image_url" />
+                                <img v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" alt="" />
+                                <img v-else-if="!checkPromoImage(result) && !checkResultImage(result)" :src="result.store.image_url" alt="" />
                                 <div v-else class="no_logo">
-                                    <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
+                                    <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png" alt="">
                                     <p class="store_details_name">
                                         <span v-if="result.store_front_url_abs">{{result.name}}</span>
                                         <span v-else>{{ result.store.name }}</span>
@@ -32,7 +34,7 @@
                             </div>
                             <div v-else-if="checkResultImage(result)" class="store_details_image center-block">
                                 <div class="no_logo">
-                                    <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
+                                    <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png" alt="">
                                     <p class="store_details_name">
                                         <span v-if="result.store_front_url_abs">{{result.name}}</span>
                                         <span v-else>{{ result.store.name }}</span>
@@ -40,16 +42,16 @@
                                 </div>    
                             </div> 
                             <div v-else class="store_details_image center-block">
-                                <img v-if="result.store" :src="result.store.image_url"/>
-                                <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
-                                <img v-else :src="property.default_logo_url_black" />
+                                <img v-if="result.store" :src="result.store.image_url" alt=""/>
+                                <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs" alt=""/>
+                                <img v-else :src="property.default_logo_url_black" alt="" />
                             </div>
                         </div>
                         <div v-else class="col-sm-3 search details_store_image">
                             <div class="store_details_image center-block">
-                                <img v-if="result.store != null" :src="result.store.image_url"/>   
-                                <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
-                                <img v-else :src="property.default_logo_url_black" />
+                                <img v-if="result.store != null" :src="result.store.image_url" alt=""/>   
+                                <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" alt="" />
+                                <img v-else :src="property.default_logo_url_black" alt="" />
                             </div>
                         </div>
                         <div class="col-sm-9 search_result_content">
