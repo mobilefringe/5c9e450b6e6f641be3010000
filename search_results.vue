@@ -1,6 +1,6 @@
 <template>
     <div v-if="dataLoaded" v-cloak>
-        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+        <div class="page_header" v-if="pageBanner" :style="{ backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 61.52%, rgba(0,0,0,0.7) 100%), url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
 					<h1>Search Results</h1>
@@ -89,6 +89,7 @@
             data() {
                 return {
                     dataLoaded: true,
+                    pageBanner: null,
                     searchResults: null,
                     searchQuery: null
                 }
@@ -100,6 +101,14 @@
                 next();
             },
             created() {
+                var temp_repo = this.findRepoByName('Guest Services Banner');
+                if (temp_repo && temp_repo.images) {
+                    this.pageBanner = temp_repo.images[0];
+                } else {
+                    this.pageBanner = {};
+                    this.pageBanner.image_url = "";
+                }
+                    
                 this.updateResults();
                 if (this.$route.params.results == null && this.$route.params.results == undefined) {
                     this.$router.push("/");
