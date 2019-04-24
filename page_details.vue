@@ -10,8 +10,8 @@
 			</div>
 		</div>
 		<div class="site_container">
-		    <div class="page_content">
-                <div class="page_body" v-html="currentPage.body"></div>
+		    <div class="row page_content">
+                <div class="col-md-12 page_body" v-html="currentPage.body"></div>
             </div>
         </div>
     </div>
