@@ -1,5 +1,5 @@
 <template>
-    <div> <!-- for some reason if you do not put an outer container div this component template will not render -->
+    <div id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
         <div class="page_header" v-if="pageBanner" :style="{ backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 61.52%, rgba(0,0,0,0.7) 100%), url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
@@ -7,7 +7,7 @@
 				</div>
 			</div>
 		</div>  
-        <div class="site_container" id="contact_us_container">
+        <div class="site_container" >
             <div class="row"> 
                 <div class="col-md-12">
                     <form class="form-horizontal js-cm-form" action="https://mobilefringe.createsend.com/t/d/s/wdlijy/" method="post" id="subForm">
