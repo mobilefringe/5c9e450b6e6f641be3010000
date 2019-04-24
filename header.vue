@@ -78,8 +78,8 @@
                                     <a v-if="property.contact_phone" :href="'tel:'+property.contact_phone">{{property.contact_phone}}</a>
                                 </div>
                                 <div>
-                                    <p style="display:block"> {{property.address1}}</p>
-                                    <p style="display:block">{{property.city}}, {{property.postal_code}} {{property.province_state}}</p>
+                                    <p style="display:block">{{ property.address1 }}</p>
+                                    <p style="display:block">{{ property.city }}, {{ property.province_state }} {{ property.postal_code }}</p>
                                 </div>
     							<div class="header_social">
     							    <social-links></social-links>
@@ -97,9 +97,7 @@
 			    <search-component :list="searchList" placeholder="Search" :suggestion-attribute="suggestionAttribute" :keys="keys" v-model="search_result" @select="onOptionSelect" :autocomplete="false" :minMatchCharLength="3" :tokenize="true" class="text-left inline_block col-xs-10">
                     <template slot="item" scope="option" class="manual">
                         <article class="media">
-                        <p>
-                            {{ option.data.name }}
-                        </p>
+                            <p>{{ option.data.name }}</p>
                         </article>
                     </template>
                 </search-component>
@@ -115,17 +113,14 @@
     				<div class="top_nav hidden_phone">
     					<nav id="primary_nav">
     						<ul>
-    						    <li v-for="(item, index) in menu_items" class="menu_item" :class="{dropdown : item.sub_menu,open : item.open_dropdown}" >
-    						        <!-- @keyup.enter="toggleDropdown(index)" -->
-    						        <p v-if="item.sub_menu" to="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" :aria-expanded="item.open_dropdown">{{$t(item.name)}}</p>
-    						        <router-link v-else :to="item.href">{{$t(item.name)}}</router-link>
+    						    <li v-for="(item, index) in menu_items" class="menu_item" :class="{dropdown : item.sub_menu,open : item.open_dropdown}">
+    						        <p v-if="item.sub_menu" to="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" :aria-expanded="item.open_dropdown">{{ $t(item.name) }}</p>
+    						        <router-link v-else :to="item.href">{{ $t(item.name) }}</router-link>
     						        <ul v-if="item.sub_menu" class="dropdown-content">
     						            <li v-for="sub_menu in item.sub_menu" class="dropdown_item">
-    						                <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{$t(sub_menu.name)}}</a>
-    						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">{{$t(sub_menu.name)}}</router-link>
-    						                <!--<a v-else-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{$t(sub_menu.name)}}</a>-->
-    						                <router-link v-else :to="{name : sub_menu.router_name, params: { new_store: sub_menu.prop }, query:{new_store: 'new_store'}} ">{{$t(sub_menu.name)}}</router-link>
-    						                
+    						                <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{ $t(sub_menu.name) }}</a>
+    						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">{{ $t(sub_menu.name) }}</router-link>
+    						                <router-link v-else :to="{name : sub_menu.router_name, params: { new_store: sub_menu.prop }, query:{new_store: 'new_store'}} ">{{ $t(sub_menu.name) }}</router-link>
     						            </li>
     								</ul>
     						    </li>
@@ -168,7 +163,7 @@
                     this.show_mobile_menu = false; //close menu when navigating to new page
                 },
                 show_mobile_menu: function() {
-                    if(this.show_mobile_menu === true){
+                    if (this.show_mobile_menu === true) {
                         document.body.classList.add("no-scroll");
                     } else if (this.show_mobile_menu === false) {
                         document.body.classList.remove("no-scroll");
@@ -204,7 +199,7 @@
                         } else {
                             value.is_store = true;    
                         }
-                    });s
+                    });
                     var jobs = this.processedJobs;
                     _.forEach(jobs, function (value, key) {
                         if (_.includes(value.jobable_type, 'Property')) {
@@ -230,10 +225,9 @@
                     this.menu_items[index].open_dropdown = true;
                 },
                 onOptionSelect(option) {
-                    try{
+                    try {
                         ga('send', 'event', 'Search Keywords', 'search', this.search_result);
-                    }
-                    catch (err){
+                    } catch (err) {
                         console.log("cannot send search data to GA tracking")
                     }
                     this.$router.push({
@@ -247,14 +241,13 @@
                     });
                 },
                 makeNavbarSmall(e) {
-                  if (window.pageYOffset >= this.isSticky) {
-                    this.smallerHeader = true;
-                  } else {
-                    this.smallerHeader = false;
-                  }
+                    if (window.pageYOffset >= this.isSticky) {
+                        this.smallerHeader = true;
+                    } else {
+                        this.smallerHeader = false;
+                    }
                 },
                 closeMobileMenu(){
-                    console.log("close menu")
                     this.show_mobile_menu = false;
                     return true;
                 }
