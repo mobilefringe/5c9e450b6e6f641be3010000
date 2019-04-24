@@ -31,6 +31,7 @@
                                 </div>  
                             </div>
                             <div v-else-if="checkResultImage(result)">
+                             {{ result }}
                                 <div class="no_logo">
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
                                     <p class="store_details_name">
@@ -40,9 +41,8 @@
                                 </div>    
                             </div> 
                             <div v-else>
-                                <img v-if="result.store != null" :src="result.store.image_url"/>   
-                                <img v-else-if="checkPromoImage(result)" :src="property.default_logo_url_black" />
-                                <img v-else :src="result.image_url" />
+                                <img v-if="result.store" :src="result.store.image_url"/>
+                                <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
                             </div>
                         </div>
                         <div v-else class="col-sm-3 search details_store_image">
@@ -164,7 +164,6 @@
                             return true
                         }
                     }
-                    return false
                 },
                 checkEventImage(result) {
                     if(result.event_image_url_abs){
