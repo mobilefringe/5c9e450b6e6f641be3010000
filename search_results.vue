@@ -30,7 +30,7 @@
                                     </p>
                                 </div>  
                             </div>
-                            <div v-else-if="checkResultImage(result)">
+                            <div v-else-if="checkResultImage(result)" class="store_details_image center-block">
                                 <div class="no_logo">
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
                                     <p class="store_details_name">
@@ -39,7 +39,7 @@
                                     </p>
                                 </div>    
                             </div> 
-                            <div v-else>
+                            <div v-else class="store_details_image center-block">
                                 <img v-if="result.store" :src="result.store.image_url"/>
                                 <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
                                 <img v-else :src="property.default_logo_url_black" />
