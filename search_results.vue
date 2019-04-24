@@ -20,6 +20,7 @@
                     <div class="row result_container_row">
                         <div v-if="result.is_store" class="col-sm-3 search details_store_image">
                             <div v-if="result.hasOwnProperty('promo_image_url_abs')" class="store_details_image center-block">
+                            {{ result }}
                                 <img v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" />
                                 <img v-else-if="!checkPromoImage(result) && !checkResultImage(result)" :src="result.store.image_url" />
                                 <div v-else class="no_logo">
