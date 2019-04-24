@@ -1,74 +1,72 @@
 <template>
-    <div v-if="dataLoaded" v-cloak>
-        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
-			<div class="site_container">
-				<div class="header_content">
-					<h1>Search Results</h1>
-					<h2 style="display:none;">Scroll to  view page details</h2>
-				</div>
-			</div>
-		</div>
-        <div class="site_container">
-    		<div v-if="searchResults && searchResults.length > 0" id="searchResults" class="margin_40">
-    		    <div class="row">
-    		        <div class="col-md-12">
-    		            <p v-if="searchResults.length > 1" class="search_result_title">Found {{ searchResults.length }} results matching "{{searchQuery}}"</p>
-                        <p v-else class="search_result_title">Found {{searchResults.length}} result matching "{{searchQuery}}"</p>
-    		        </div>
-    		    </div>
-    			<div v-for="(result, index) in searchResults" :key="index" class="row">
-                    <div v-if="result.is_store" class="col-sm-3 store_details_image center-block">
-                        <div v-if="result.hasOwnProperty('promo_image_url_abs')">
-                            <img class="result_logo" v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" />
-                            <img class="result_logo" v-else-if="!checkPromoImage(result) && !checkResultImage(result)" :src="result.store.image_url" />
-                            <div v-else class="no_logo">
-                                <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
-                                <p class="store_details_name">
-                                    <span v-if="result.store_front_url_abs">{{ result.name }}</span>
-                                    <span v-else>{{ result.store.name }}</span>
-                                </p>
-                            </div>  
-                        </div>
-                        <div v-else-if="checkResultImage(result)">
-                            <div class="no_logo">
-                                <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
-                                <p class="store_details_name">
-                                    <span v-if="result.store_front_url_abs">{{result.name}}</span>
-                                    <span v-else>{{ result.store.name }}</span>
-                                </p>
-                            </div>    
-                        </div> 
-                        <div v-else>
-                            <img class="result_logo" v-if="result.store" :src="result.store.image_url"/>
-                            <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
-                        </div>
+	<div>
+        <div v-if="dataLoaded" v-cloak>
+            <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+    			<div class="site_container">
+    				<div class="header_content">
+    					<h1>Search Results</h1>
+    					<h2 style="display:none;">Scroll to  view page details</h2>
+    					<h3 style="display:none;">View page details</h3>
+    				</div>
+    			</div>
+    		</div>
+            <div class="site_container margin_30">
+        		<div class="text-left" v-if="searchResults && searchResults.length > 0" id="searchResults">
+                    <p class="search_result_title">Found {{searchResults.length}} results matching "{{searchQuery}}"</p>
+        			<div v-for="(result,index) in searchResults" :key="index">
+                        <div class="row result_container_row">
+                            <div v-if="result.is_store" class="col-sm-3 store_details_image center-block">
+                                <div v-if="result.hasOwnProperty('promo_image_url_abs')">
+                                    <img v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" />
+                                    <img v-else-if="!checkPromoImage(result) && !checkResultImage(result)" :src="result.store.image_url" />
+                                    <div v-else class="no_logo">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
+                                        <p class="store_details_name">
+                                            <span v-if="result.store_front_url_abs">{{result.name}}</span>
+                                            <span v-else>{{ result.store.name }}</span>
+                                        </p>
+                                    </div>  
+                                </div>
+                                <div v-else-if="checkResultImage(result)">
+                                    <div class="no_logo">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
+                                        <p class="store_details_name">
+                                            <span v-if="result.store_front_url_abs">{{result.name}}</span>
+                                            <span v-else>{{ result.store.name }}</span>
+                                        </p>
+                                    </div>    
+                                </div> 
+                                <div v-else>
+                                    <img v-if="result.store" :src="result.store.image_url"/>
+                                    <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
+                                </div>
+                            </div>
+                            <div v-else class="col-sm-3 store_details_image center-block">
+                                <img v-if="result.store != null" :src="result.store.image_url"/>   
+                                <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
+                                <img v-else :src="result.image_url" />
+                            </div>
+                            <div class="col-sm-9 search_result_content">
+                                <h3>{{result.name}}</h3>
+                                <p>{{truncated(result.description)}}</p>
+                                <router-link v-if="result.store_front_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'storeDetails', params:{ id:result.slug }}">
+                                    <i class="fa fa-caret-right hvr-icon"></i> View Store Details
+                                </router-link>
+                                <router-link v-else-if="result.promo_image_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'promotionDetails', params: { id: result.slug }}">
+                                    <i class="fa fa-caret-right hvr-icon"></i> View Promotion Details 
+                                </router-link>
+                                <router-link v-else-if="result.event_image_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'eventDetails', params: { id: result.slug }}">
+                                    <i class="fa fa-caret-right hvr-icon"></i> View Event Details
+                                </router-link>
+                                <router-link v-else-if="result.jobable_id" class="result_link hvr-icon-forward" :to="{ name: 'jobDetails', params: { id: result.slug }}">
+                                    <i class="fa fa-caret-right hvr-icon"></i> View Job Details
+                                </router-link>
+                            </div>
+                        </div>                
                     </div>
-                    <div v-else class="col-sm-3 store_details_image center-block">
-                        <img class="result_logo" v-if="result.store != null" :src="result.store.image_url"/>   
-                        <img class="result_logo" v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
-                        <img class="result_logo" v-else :src="result.image_url" />
-                    </div>
-                    <div class="col-sm-9 search_result_content">
-                        <h3>{{ result.name }}</h3>
-                        <p>{{ truncated(result.description) }}</p>
-                        <router-link v-if="result.store_front_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'storeDetails', params:{ id:result.slug }}">
-                            <i class="fa fa-caret-right hvr-icon-wobble-horizontal"></i> View Store Details
-                        </router-link>
-                        <router-link v-else-if="result.promo_image_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'promotionDetails', params: { id: result.slug }}">
-                            <i class="fa fa-caret-right hvr-icon-wobble-horizontal"></i> View Promotion Details 
-                        </router-link>
-                        <router-link v-else-if="result.event_image_url_abs" class="result_link hvr-icon-forward" :to="{ name: 'eventDetails', params: { id: result.slug }}">
-                            <i class="fa fa-caret-right hvr-icon-wobble-horizontal"></i> View Event Details
-                        </router-link>
-                        <router-link v-else-if="result.jobable_id" class="result_link hvr-icon-forward" :to="{ name: 'jobDetails', params: { id: result.slug }}">
-                            <i class="fa fa-caret-right hvr-icon-wobble-horizontal"></i> View Job Details
-                        </router-link>
-                    </div>
-                </div>                
-            </div>
-            <div v-else class="row margin_40">
-                <div class="col-md-12" > 
-                    <p>Sorry, there are no results that match your search. Please try again.</p>
+        		</div>
+                <div class="page_container text-left col-md-12" v-else> 
+                    <h4>Sorry, there are no results that match your search. Please try again.</h4>
                 </div>
             </div>
         </div>
@@ -81,9 +79,10 @@
             template: template, // the variable template will be injected
             data() {
                 return {
-                    dataLoaded: true,
                     searchResults: null,
-                    searchQuery: null
+                    searchQuery: null,
+                    dataLoaded: true,
+                    
                 }
             },
             beforeRouteUpdate(to, from, next) {
@@ -94,7 +93,10 @@
             },
             created() {
                 this.updateResults();
-                if (this.$route.params.results == null && this.$route.params.results == undefined) {
+                if (
+                    this.$route.params.results == null &&
+                    this.$route.params.results == undefined
+                ) {
                     this.$router.push("/");
                 }
             },
@@ -106,9 +108,10 @@
                 pageBanner() {
                     var pageBanner = null;
                     var temp_repo = this.findRepoByName('Pages Banner');
-                    if (temp_repo && temp_repo.images) {
+                    if(temp_repo && temp_repo.images) {
                         pageBanner = temp_repo.images[0];
-                    } else {
+                    }
+                    else {
                         pageBanner = {};
                         pageBanner.image_url = "";
                     }
@@ -117,10 +120,17 @@
             },
             methods: {
                 truncated(string) {
-                    return _.truncate(string, { length: 150,  separator: " " });
+                    return _.truncate(string, {
+                        length: 150,
+                        separator: " "
+                    });
                 },
                 updateResults() {
-                    if (this.$route.query.searchQuery !== null && this.$route.query.searchQuery !== undefined && this.$route.query.searchQuery.length > 0) {
+                    if (
+                        this.$route.query.searchQuery !== null &&
+                        this.$route.query.searchQuery !== undefined &&
+                        this.$route.query.searchQuery.length > 0
+                    ) {
                         if (
                             this.$route.params.results !== null &&
                             this.$route.params.results !== undefined &&
@@ -132,15 +142,14 @@
                     } else {
                         this.$router.push("/");
                     }
-                    console.log(this.searchResults)
                 },
                 checkResultImage(result){
-                    if (result.store_front_url_abs) {
+                    if(result.store_front_url_abs){
                         // this is a store with no image
-                        if (_.includes(result.store_front_url_abs,'missing')) {
+                        if(_.includes(result.store_front_url_abs,'missing')){
                             return true
                         }
-                    } else if (result.store && _.includes(result.store.store_front_url_abs,'missing')) {
+                    } else if(result.store && _.includes(result.store.store_front_url_abs,'missing')){
                         return true
                     }
                     return false
@@ -148,9 +157,10 @@
                 checkPromoImage(result) {
                     if(result.promo_image_url_abs){
                         // this is a store with no image
-                        if (_.includes(result.promo_image_url_abs,'missing')) {
+                        if(_.includes(result.promo_image_url_abs,'missing')){
                             return false
-                        } else {
+                        }
+                        else {
                             return true
                         }
                     }
@@ -158,9 +168,10 @@
                 checkEventImage(result) {
                     if(result.event_image_url_abs){
                         // this is a store with no image
-                        if (_.includes(result.event_image_url_abs,'missing')) {
+                        if(_.includes(result.event_image_url_abs,'missing')){
                             return true
-                        } else {
+                        }
+                        else {
                             return false
                         }
                     }
