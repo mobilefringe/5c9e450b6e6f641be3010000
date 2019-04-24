@@ -66,11 +66,11 @@
 
                         // Add custom banners for indivial pages
                         var temp_repo = null;
-                        if (_.includes(id, 'gift-cards') || _.includes(id, 'guest-services') || _.includes(id, 'community-booth') || _.includes(id, 'family-lounge') || _.includes(id, 'thank-you')) {
+                        if (_.includes(id, 'gift-cards') || _.includes(id, 'guest-services') || _.includes(id, 'community-booth') || _.includes(id, 'family-lounge')) {
                             temp_repo = this.findRepoByName('Guest Services Banner');
                         } else if (_.includes(id, 'about') || _.includes(id, 'accessibility')) {
                             temp_repo = this.findRepoByName('Information Banner');
-                        } else if (_.includes(id, 'sponsorship')) {
+                        } else if (_.includes(id, 'sponsorship') || _.includes(id, 'thank-you')) {
                             temp_repo = this.findRepoByName('Contact Banner');
                         }
 
