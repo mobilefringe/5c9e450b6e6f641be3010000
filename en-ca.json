@@ -99,7 +99,7 @@
         "newsletter" : "Newsletter",
         "name" : "Name",
         "email" : "Email",
-        "agree" : "Yes, I would like to receive ongoing news related to events, promotions and special announcements from",
+        "agree" : "Yes, I would like to receive ongoing news related to events, promotions, and special announcements from",
         "subscribe" : "Subscribe",
         "success" : "Success", 
         "error": "Error",
