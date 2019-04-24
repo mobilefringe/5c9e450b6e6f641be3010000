@@ -32,7 +32,7 @@
                                 </div>  
                             </div>
                             <div v-else-if="checkResultImage(result)">
-                            {{ result }}
+                            
                                 <div class="no_logo">
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
                                     <p class="store_details_name">
@@ -42,6 +42,7 @@
                                 </div>    
                             </div> 
                             <div v-else>
+                            {{ result }}
                                 <img v-if="result.store" :src="result.store.image_url"/>
                                 <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
                                 <img v-else :src="property.default_logo_url_black" />
