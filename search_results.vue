@@ -53,8 +53,8 @@
                             <div class="store_details_image center-block">
                                 <img v-if="result.store != null" :src="result.store.image_url"/>   
                                 <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
-                                <img v-else-if="checkPromoImage(result)" :src="property.default_logo_url_black" />
-                                <img v-else :src="result.image_url" />
+                                <img v-else :src="property.default_logo_url_black" />
+                                <!--<img v-else :src="result.image_url" />-->
                             </div>
                         </div>
                         <div class="col-sm-9 search_result_content">
