@@ -17,7 +17,6 @@
     		        </div>
     		    </div> 
     			<div v-for="(result, index) in searchResults" :key="index">
-    			{{ result }}
                     <div class="row result_container_row">
                         <div v-if="result.is_store" class="col-sm-3 search details_store_image">
                             <div v-if="result.hasOwnProperty('promo_image_url_abs')" class="store_details_image center-block">
@@ -50,6 +49,7 @@
                             </div>
                         </div>
                         <div v-else class="col-sm-3 search details_store_image">
+                        {{ result }}
                             <div class="store_details_image center-block">
                                 <img v-if="result.store != null" :src="result.store.image_url"/>   
                                 <img v-else-if="checkEventImage(result)" :src="property.default_logo_url_black" />
