@@ -17,8 +17,8 @@
     		        </div>
     		    </div>
     			<div v-for="(result, index) in searchResults" :key="index" class="row">
-                    <div v-if="result.is_store" class="col-sm-3 store_details_image center-block">
-                        <div v-if="result.hasOwnProperty('promo_image_url_abs')">
+                    <div v-if="result.is_store" class="col-sm-3 details_store_image">
+                        <div v-if="result.hasOwnProperty('promo_image_url_abs')" class="store_details_image center-block">
                             <img class="result_logo" v-if="checkPromoImage(result)" :src="result.promo_image_url_abs" />
                             <img class="result_logo" v-else-if="!checkPromoImage(result) && !checkResultImage(result)" :src="result.store.image_url" />
                             <div v-else class="no_logo">
@@ -29,7 +29,7 @@
                                 </p>
                             </div>  
                         </div>
-                        <div v-else-if="checkResultImage(result)">
+                        <div v-else-if="checkResultImage(result)" class="store_details_image center-block">
                             <div class="no_logo">
                                 <img src="//codecloud.cdn.speedyrails.net/sites/5b88438d6e6f641e8d3c0000/image/png/1536092029690/transparent_logo.png">
                                 <p class="store_details_name">
@@ -38,7 +38,7 @@
                                 </p>
                             </div>    
                         </div> 
-                        <div v-else>
+                        <div v-else class="store_details_image center-block">
                             <img class="result_logo" v-if="result.store" :src="result.store.image_url"/>
                             <img v-else-if="result.store_front_url_abs" class="result_logo" :src="result.store_front_url_abs"/>
                         </div>
