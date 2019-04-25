@@ -61,10 +61,6 @@
             {
                 "name": "header.about",
                 "href": "/pages/prairiemall-about"
-            },
-            {
-                "name": "header.accessibility",
-                "href": "/pages/prairiemall-accessibility"
             }
         ]
     },
