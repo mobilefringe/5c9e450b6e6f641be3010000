@@ -163,7 +163,6 @@
                             value.do_anchor_tag = false;
                         }
                     });
-                    console.log("features", features)
                     return features;
                 },
                 mobile_feature_items () {
