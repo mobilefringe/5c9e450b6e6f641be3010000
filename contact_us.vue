@@ -54,9 +54,15 @@
                 </div>
             </div>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.740986304708!2d-118.79423438437529!3d55.18780034289257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x539096a99c2f812f%3A0x783bbfe889a99cb2!2sPrairie+Mall+Shopping+Centre!5e0!3m2!1sen!2sca!4v1555886450780!5m2!1sen!2sca" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe id="google_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.740986304708!2d-118.79423438437529!3d55.18780034289257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x539096a99c2f812f%3A0x783bbfe889a99cb2!2sPrairie+Mall+Shopping+Centre!5e0!3m2!1sen!2sca!4v1555886450780!5m2!1sen!2sca" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 </template>
+
+<style>
+    #google_map {
+        margin-bottom: -9px;
+    }
+</style>
 <script>
     define(["Vue", "vuex", "vue-meta", 'vee-validate', 'utility'], function(Vue, Vuex, Meta, VeeValidate, Utility) {
         Vue.use(Meta);
