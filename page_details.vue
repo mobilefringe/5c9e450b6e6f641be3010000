@@ -1,6 +1,6 @@
 <template>
     <div v-if="currentPage">
-        <div class="page_header" v-if="pageBanner" :style="{ backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 61.52%, rgba(0,0,0,0.7) 100%), url(' + pageBanner.image_url + ')' }">
+		<div class="page_header" v-if="pageBanner" :style="{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(169, 169, 169, 0.5) 61.52%, rgba(117, 117, 117, 0.7) 100%), url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
 					<h1>{{ currentPage.title }}</h1>
