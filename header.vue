@@ -13,21 +13,21 @@
     				</div>
     				<div class="col-md-8 col-sm-6 hidden_phone text-right">
     					<div class="header_social">
-    					<transition name="custom-classes-transition" enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
-        					<div id="search_component_wrapper" class="inline_block" v-if="showSearch">
-        					    <div class="search_component_container" >
-                                    <search-component :list="searchList" placeholder="Search" :suggestion-attribute="suggestionAttribute" :keys="keys" v-model="search_result" @select="onOptionSelect" :autocomplete="false" :minMatchCharLength="3" :tokenize="true" class="text-left">
-                                        <template slot="item" scope="option" class="manual">
-                                            <article class="media">
-                                            <p>
-                                                {{ option.data.name }}
-                                            </p>
-                                            </article>
-                                        </template>
-                                    </search-component>
-                                </div>
-        					</div>
-        				</transition>
+        					<transition name="custom-classes-transition" enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
+            					<div id="search_component_wrapper" class="inline_block" v-if="showSearch">
+            					    <div class="search_component_container" >
+                                        <search-component :list="searchList" placeholder="Search" :suggestion-attribute="suggestionAttribute" :keys="keys" v-model="search_result" @select="onOptionSelect" :autocomplete="false" :minMatchCharLength="3" :tokenize="true" class="text-left">
+                                            <template slot="item" scope="option" class="manual">
+                                                <article class="media">
+                                                <p>
+                                                    {{ option.data.name }}
+                                                </p>
+                                                </article>
+                                            </template>
+                                        </search-component>
+                                    </div>
+            					</div>
+            				</transition>
     					    <div class="search_icon inline_block solid_bg" @click="showSearch = !showSearch"> <i class="fa fa-search"></i></div>
     					    <social-links class="inline_block solid_bg"></social-links>
     					</div>
@@ -144,7 +144,7 @@
                     show_mobile_menu: false,
                     property_logo: "//codecloud.cdn.speedyrails.net/sites/5c9e450b6e6f641be3010000/image/png/1554129953732/prairiemall.png",
                     menu_items: MenuItems,
-                    showSearch: true,
+                    showSearch: false,
                     search_result: null,
                     suggestionAttribute: "name",
                     keys: ["name", "description", "tags", "keywords", "store.name"],
