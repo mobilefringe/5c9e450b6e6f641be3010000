@@ -11,7 +11,7 @@
 		</div>
 		<div class="site_container">
 		    <div class="row page_content">
-                <div class="col-md-12 page_body" v-html="currentPage.body"></div>
+                <div class="col-md-12 page_body" :class="{ sponsor: sponsorship }" v-html="currentPage.body"></div>
             </div>
         </div>
     </div>
@@ -24,7 +24,8 @@
             data: function() {
                 return {
                     pageBanner : null,
-                    currentPage: null
+                    currentPage: null,
+                    sponsorship: false
                 }
             },
             props:['id', 'locale'],
@@ -71,6 +72,9 @@
                         } else if (_.includes(id, 'about') || _.includes(id, 'accessibility')) {
                             temp_repo = this.findRepoByName('Information Banner');
                         } else if (_.includes(id, 'sponsorship') || _.includes(id, 'thank-you')) {
+                            if (_.includes(id, 'sponsorship')) {
+                                this.sponsorship = true;
+                            }
                             temp_repo = this.findRepoByName('Contact Banner');
                         }
 
