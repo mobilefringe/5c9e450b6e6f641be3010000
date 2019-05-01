@@ -31,7 +31,7 @@ require.config({
         'vue-social-sharing': 'https://cdn.jsdelivr.net/npm/vue-social-sharing@2.3.1/dist/vue-social-sharing.min',
         'vee-validate' : 'https://cdn.jsdelivr.net/npm/vee-validate@2.1.4/dist/vee-validate',
         'v-calendar': 'https://unpkg.com/v-calendar@0.5.1/lib/v-calendar.min',
-        'lightbox': 'https://mmvue.codecloudapp.com/lightbox',
+        'lightbox': 'https://preview-mmvue.codecloudapp.com/lightbox',
         'vue-simple-spinner': 'https://cdn.jsdelivr.net/npm/vue-simple-spinner@1.2.8/dist/vue-simple-spinner.min',
         'vue-lazy-load': 'https://unpkg.com/vue-lazyload/vue-lazyload',
         'masonry' : 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min',
