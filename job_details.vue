@@ -114,7 +114,7 @@
             },
             created(){
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Contact Banner');
+                    var temp_repo = this.findRepoByName('Careers Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
                     } else {
