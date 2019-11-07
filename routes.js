@@ -79,13 +79,15 @@ define([], function() {
             }]
         },
         {
-            path: '/hours',
-            component: view('hours'),
-            children: [{
-                path: '',
-                component: view('hours'),
-                name: 'hourList',
-            }]
+           path: '/hours',
+           component: view('default'),
+           children: [
+              {
+                 path: '',
+                 component: view('hours'),
+                 name: 'hourList',
+              }
+           ]
         },
         {
             path: '/contact-us',
