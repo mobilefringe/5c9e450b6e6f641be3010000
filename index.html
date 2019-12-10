@@ -37,7 +37,7 @@
 	    {%raw-%} 
     		<div id="app" v-cloak>
     			<loader v-if="!dataLoaded"></loader>
-    			    <h1 style="display:none;" v-if-"property">{{ property.name }}</h1>
+    			    <h1 style="display:none;" v-if="property">{{ property.name }}</h1>
     			    <header-component  v-if="dataLoaded"></header-component>
     				<transition name="custom-classes-transition" enter-active-class="fadeIn">
     					<router-view class="router_content" :locale="locale"  v-if="dataLoaded"></router-view>
