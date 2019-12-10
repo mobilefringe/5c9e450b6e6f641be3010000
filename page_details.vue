@@ -77,7 +77,7 @@
                             temp_repo = this.findRepoByName('Guest Services Banner');
                         } else if (_.includes(id, 'about') || _.includes(id, 'accessibility')) {
                             temp_repo = this.findRepoByName('Information Banner');
-                        } else if (_.includes(id, 'sponsorship') || _.includes(id, 'thank-you')) {
+                        } else if (_.includes(id, 'sponsorship') || _.includes(id, 'thank-you') || _.includes(id, 'leasing')) {
                             if (_.includes(id, 'sponsorship')) {
                                 this.sponsorship = true;
                             }
