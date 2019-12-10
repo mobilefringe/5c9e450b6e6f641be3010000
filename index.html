@@ -75,7 +75,7 @@
     						<div class="footer_terms">
     							<p>
     							    &copy; {{copyright_year}}
-    							    <span class="caps"> {{property.name}}</span> 
+    							    <span class="caps" v-if="property"> {{property.name}}</span> 
     							    {{$t("footer.all_rights")}}
     							    <a href="https://www.morguard.com/privacy/" target="_blank"> {{$t("footer.privacy_policy")}} </a>
     							    <span>|</span>
