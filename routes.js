@@ -124,7 +124,7 @@ define([], function() {
             children: [{
                 path: '',
                 component: view('specialty_leasing'),
-                name: 'Specialty Leasing'
+                name: 'SpecialtyLeasing'
             }]
         },
         {
