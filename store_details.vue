@@ -16,7 +16,7 @@
 					<div class="image_container details_store_image">
 						<div v-if="currentStore.no_store_logo" class="store_details_image center-block">
                             <div class="no_logo">
-                                <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                <img class="store_img" src="//assets.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
                                 <h2 class="store_details_name">{{ currentStore.name }}</h2>
                             </div>    
                         </div>
@@ -64,7 +64,7 @@
 								<div class="promo_div_image text-center" v-lazy:background-image="checkImageURL(promo)"></div>
 								<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
                                     <div class="no_logo">
-                                        <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                        <img class="store_img" src="//assets.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
                                         <h2 class="store_details_name">{{ promo.store.name }}</h2>
                                     </div>    
 								</div>
@@ -133,16 +133,16 @@
             },
             created (){
                 this.loadData().then(response => {
-                    this.dataLoaded = true;
-                    this.updateCurrentStore(this.id);
                     var temp_repo = this.findRepoByName('Stores Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
+                    
+                    this.updateCurrentStore(this.id);
+                    this.dataLoaded = true;
                 });
             },
             watch: {
@@ -212,7 +212,7 @@
                     return _.map(this.processedStores, 'name');
                 },
                 getSVGMap(){
-                    return "//mallmaverick.com"+this.property.svgmap_url;  
+                    return "//assets.mallmaverick.com" + this.property.svgmap_url;  
                 },
                 floorList () {
                     var floor_list = [];
@@ -223,7 +223,6 @@
                     floor_1.z_index = null;
                     floor_1.show = true;
                     floor_list.push(floor_1);
-                    
                     return floor_list;
                 }
             },
@@ -241,14 +240,14 @@
                 },
                 updateCurrentStore(id) {
                     this.currentStore = this.findStoreBySlug(id);
-                    if (this.currentStore === null || this.currentStore === undefined){
+                    if (this.currentStore === null || this.currentStore === undefined) {
                         this.$router.replace('/stores');
                     }
                 },
                 isMultiDay(promo) {
                     var timezone = this.timezone
-                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
-                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
+                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY");
+                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY");
                     if (start_date === end_date) {
                         return false
                     } else {
