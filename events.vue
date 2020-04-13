@@ -20,7 +20,7 @@
                                 </div>    
                             </div>
                             <div v-else class="store_details_image center-block">
-                                <img :src="checkImageURL(promo)" :alt="promo.name" />
+                                <img :src="checkImageURL(promo)" :alt="" />
                             </div>
 						</div>
 					</div>
