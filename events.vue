@@ -15,12 +15,12 @@
 						<div class="image_container details_store_image">
 						    <div v-if="!checkImageURL(promo)" class="store_details_image center-block">
                                 <div class="no_logo">
-                                    <img class="store_img" src="//assets.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                    <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
                                     <h2 class="store_details_name">{{ promo.store.name }}</h2>
                                 </div>    
                             </div>
                             <div v-else class="store_details_image center-block">
-                                <img :src="checkImageURL(promo)" :alt="" />
+                                <img :src="checkImageURL(promo)" :alt="promo.name" />
                             </div>
 						</div>
 					</div>
@@ -170,7 +170,6 @@
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
                         if (today >= webDate) {
                             value.description_short = _.truncate(value.description, { 'length': 150 });
-
                             if (value.store != null && value.store != undefined && _.includes(value.store.store_front_url_abs, 'missing')) {
                                 value.store.store_front_url_abs = vm.property.default_logo_url_black;
                             } else if (value.store == null || value.store == undefined) {
