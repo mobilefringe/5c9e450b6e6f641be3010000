@@ -61,6 +61,10 @@
             {
                 "name": "header.about",
                 "href": "/pages/prairiemall-about"
+            },
+            {
+                "name": "header.reopening",
+                "href": "/pages/prairiemall-re-opening"
             }
         ]
     },
